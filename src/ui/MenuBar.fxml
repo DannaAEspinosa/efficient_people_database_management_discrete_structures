@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuBarController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+            <Menu mnemonicParsing="false" text="Data">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#generateData" text="Generate Data" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="People">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#addPerson" text="Add" />
+                  <MenuItem mnemonicParsing="false" onAction="#updatePerson" text="Update" />
+                  <MenuItem mnemonicParsing="false" onAction="#deletePerson" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Search">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#searchByName" text="Name" />
+                  <MenuItem mnemonicParsing="false" onAction="#searchByLastName" text="Last Name" />
+              <MenuItem mnemonicParsing="false" onAction="#searchByFullName" text="Full name" />
+                  <MenuItem mnemonicParsing="false" onAction="#searchByCode" text="Code" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>
