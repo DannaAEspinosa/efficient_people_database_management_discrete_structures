@@ -39,6 +39,18 @@ public class MenuBarController {
 
     @FXML
     void searchByLastName(ActionEvent event) {
+    	
+ 
+
+    }
+    
+    @FXML
+    void searchByName(ActionEvent event) {
+
+    }
+
+    @FXML
+    void updatePerson(ActionEvent event) {
 
     }
 
