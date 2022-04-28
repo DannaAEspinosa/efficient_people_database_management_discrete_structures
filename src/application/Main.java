@@ -8,9 +8,12 @@ import controller.MenuBarController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.Controller;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 
 public class Main extends Application {
 
@@ -26,8 +29,11 @@ public class Main extends Application {
 			generateData();
 		}catch(Exception e){
 			e.printStackTrace();
-			System.out.println("atrapada");
 		}
+		currentStage.getIcons().add(new Image("/img/superpoblacion.png"));
+		currentStage.setTitle("Base Data S.A");
+		
+		
 	}
 
 	public static void main(String[] args) {
@@ -67,6 +73,9 @@ public class Main extends Application {
 			initialView= (BorderPane)stage.getScene().getRoot();
 			
 			initialView.setCenter(root_2);
+			
+			//scene.setFill(Color.TRANSPARENT);
+			//stage.initStyle(StageStyle.TRANSPARENT);
 			
 			stage.show();
 			
