@@ -1,12 +1,25 @@
 package controller;
 
+import java.io.IOException;
+
 import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 public class MenuBarController {
 
 	private Main main;
+	
 
 	public MenuBarController() {
 
@@ -24,7 +37,7 @@ public class MenuBarController {
 
     @FXML
     void generateData(ActionEvent event) {
-
+    
     }
 
     @FXML
@@ -54,7 +67,13 @@ public class MenuBarController {
 
     }
 
+
+
 	public void setMain(Main main) {
 		this.main = main;
 	}
+
+	
+
+	
 }

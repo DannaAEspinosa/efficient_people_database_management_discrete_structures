@@ -2,18 +2,20 @@ package application;
 
 import java.io.IOException;
 
-import controller.GenerateDataController;
+import controller.InitialViewController;
 import controller.MenuBarController;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import model.Controller;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import model.Controller;
 
 public class Main extends Application {
 
@@ -32,6 +34,8 @@ public class Main extends Application {
 		}
 		currentStage.getIcons().add(new Image("/img/superpoblacion.png"));
 		currentStage.setTitle("Base Data S.A");
+		
+		
 		
 		
 	}
@@ -62,21 +66,31 @@ public class Main extends Application {
 			currentStage.close();
 			
 			BorderPane initialView;
-			FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/generateData.fxml"));
+			FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/InitialView.fxml"));
 			
 			BorderPane root_2=(BorderPane) loader_2.load();
 			
-			GenerateDataController controller2 = loader_2.getController();
+			InitialViewController controller2 = loader_2.getController();
+			//GenerateDataController controller2 = loader_2.getController();
 			
 			controller2.setMain(this);
 			
 			initialView= (BorderPane)stage.getScene().getRoot();
 			
-			initialView.setCenter(root_2);
 			
-			//scene.setFill(Color.TRANSPARENT);
-			//stage.initStyle(StageStyle.TRANSPARENT);
 			
+			//
+			Image img = new Image("/img/My_project_2.png");
+	        BackgroundImage bImg = new BackgroundImage(img,
+	                                                   BackgroundRepeat.NO_REPEAT,
+	                                                   BackgroundRepeat.NO_REPEAT,
+	                                                   BackgroundPosition.DEFAULT,
+	                                                   BackgroundSize.DEFAULT);
+	        Background bGround = new Background(bImg);
+	        root.setBackground(bGround);
+	        
+	        initialView.setCenter(root_2);
+			//
 			stage.show();
 			
 			
