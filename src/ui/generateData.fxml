@@ -14,22 +14,28 @@
    <center>
       <AnchorPane prefHeight="403.0" prefWidth="791.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <TextField layoutX="109.0" layoutY="69.0" prefHeight="31.0" prefWidth="316.0" promptText="INSERT NUMBER" />
-            <Button fx:id="bttGenerate" layoutX="481.0" layoutY="68.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="123.0" style="-fx-background-color: #71D1D3;" text="Generate" textFill="#003e6f" />
-            <ProgressBar layoutX="101.0" layoutY="169.0" prefHeight="23.0" prefWidth="316.0" progress="0.0" />
-            <Button fx:id="bttSave" alignment="CENTER_RIGHT" layoutX="192.0" layoutY="277.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="124.0" text=" Save data" textAlignment="CENTER" textFill="#003e6f" AnchorPane.bottomAnchor="109.0" AnchorPane.leftAnchor="202.0" AnchorPane.rightAnchor="475.0" AnchorPane.topAnchor="277.0" />
+            <TextField layoutX="71.0" layoutY="69.0" prefHeight="31.0" prefWidth="357.0" promptText="insert the number of people you want to generate" />
+            <Button fx:id="bttGenerate" layoutX="444.0" layoutY="68.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="123.0" style="-fx-background-color: #71D1D3;" text="Generate" textFill="#003e6f" />
+            <ProgressBar layoutX="128.0" layoutY="193.0" prefHeight="23.0" prefWidth="316.0" progress="0.0" />
+            <Button fx:id="bttSave" alignment="CENTER_RIGHT" layoutX="192.0" layoutY="277.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="126.0" text=" Save data" textAlignment="CENTER" textFill="#003e6f" AnchorPane.bottomAnchor="109.0" AnchorPane.leftAnchor="202.0" AnchorPane.rightAnchor="276.0" AnchorPane.topAnchor="277.0" />
+            <Label fx:id="numberDataGenerate" layoutX="481.0" layoutY="194.0" textFill="#003e6f" />
+            <Label layoutX="71.0" layoutY="36.0" text="Number of people:" textFill="#003e6f">
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>
    <top>
       <AnchorPane prefHeight="93.0" prefWidth="791.0" style="-fx-background-color: #71D1D3;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="204.0" layoutY="11.0" text="GENERATE DATA" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="85.0" layoutY="13.0" text="GENERATE DATA" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font name="Georgia" size="64.0" />
+                  <Font name="Georgia" size="60.0" />
                </font>
             </Label>
-            <ImageView fx:id="imIconGenerate" fitHeight="71.0" fitWidth="91.0" layoutX="90.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imIconGenerate" fitHeight="71.0" fitWidth="91.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/users-alt-free-icon-font.png" />
                </image>
@@ -37,4 +43,20 @@
          </children>
       </AnchorPane>
    </top>
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #71D1D3;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="174.0" fitWidth="200.0" layoutX="13.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/superpoblacion.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="55.0" layoutY="75.0" text="Base Data S.A" textFill="WHITE">
+               <font>
+                  <Font name="Bernard MT Condensed" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </right>
 </BorderPane>

@@ -80,7 +80,7 @@ public class Main extends Application {
 			
 			
 			//
-			Image img = new Image("/img/My_project_2.png");
+			Image img = new Image("/img/img_main_5.png");
 	        BackgroundImage bImg = new BackgroundImage(img,
 	                                                   BackgroundRepeat.NO_REPEAT,
 	                                                   BackgroundRepeat.NO_REPEAT,

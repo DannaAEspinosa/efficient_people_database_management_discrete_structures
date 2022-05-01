@@ -57,6 +57,9 @@ public class GenerateDataController implements Initializable {
 		bttSave.setDisable(true); //Inhabilitar botón
 		bttSave.setVisible(true);
 		bttGenerate.setVisible(true);
+		//Icon superior y name
+		currentStage.getIcons().add(new Image("/img/superpoblacion.png"));
+		currentStage.setTitle("Base Data S.A");
 		
 		
 		
