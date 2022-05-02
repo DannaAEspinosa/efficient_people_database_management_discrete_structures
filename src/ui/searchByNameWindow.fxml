@@ -22,7 +22,7 @@
             </Label>
             <TableView fx:id="TableViewName" layoutX="21.0" layoutY="79.0" prefHeight="279.0" prefWidth="552.0">
               <columns>
-                <TableColumn fx:id="nameTV" prefWidth="551.0" style="-fx-background-color: #71d1d3;" text="Last Name" />
+                <TableColumn fx:id="nameTV" prefWidth="551.0" style="-fx-background-color: #71d1d3;" text="Name" />
               </columns>
             </TableView>
             <TextField fx:id="nameTF" layoutX="181.0" layoutY="39.0" prefHeight="31.0" prefWidth="390.0" />
