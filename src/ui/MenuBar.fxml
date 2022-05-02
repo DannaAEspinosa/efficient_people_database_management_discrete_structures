@@ -12,6 +12,7 @@
             <Menu mnemonicParsing="false" text="Data">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#generateData" text="Generate Data" />
+                  <MenuItem mnemonicParsing="false" onAction="#addPerson" text="Add Person" />
               </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Search">

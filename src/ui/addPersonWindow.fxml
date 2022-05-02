@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.addPersonController">
+   <center>
+      <AnchorPane prefHeight="391.0" prefWidth="518.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="58.0" layoutY="46.0" text="Name:" textFill="#003e6f">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="59.0" layoutY="114.0" text="Last Name:" textFill="#003e6f">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="64.0" layoutY="182.0" text="Age:" textFill="#003e6f">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="56.0" layoutY="258.0" text="Height:" textFill="#003e6f">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imgPerson" fitHeight="135.0" fitWidth="129.0" layoutX="395.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="58.0" layoutY="321.0" text=" Nationality:" textFill="#003e6f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="namePersonTF" layoutX="57.0" layoutY="74.0" promptText="insert name" />
+            <TextField fx:id="lastNamePersonTF" layoutX="58.0" layoutY="136.0" promptText="insert last name" />
+            <TextField fx:id="agePersonTF" layoutX="57.0" layoutY="209.0" promptText="insert age" />
+            <TextField fx:id="heightPersonTF" layoutX="57.0" layoutY="281.0" promptText="insert  height" />
+            <ComboBox fx:id="nationalityPersonCB" layoutX="56.0" layoutY="348.0" prefHeight="31.0" prefWidth="235.0" promptText="choose the nationality" style="-fx-background-color: #71d1d3;" />
+            <Label layoutX="356.0" layoutY="297.0" text="Code:" textFill="#003e6f">
+               <font>
+                  <Font name="Calibri Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="codeUniquePerson" layoutX="425.0" layoutY="297.0" prefHeight="22.0" prefWidth="97.0" text="self-generate" textFill="#003e6f">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+            <Separator layoutX="349.0" layoutY="281.0" prefHeight="3.0" prefWidth="240.0" />
+            <Separator layoutX="51.0" layoutY="113.0" prefWidth="200.0" />
+            <Separator layoutX="51.0" layoutY="179.0" prefWidth="200.0" />
+            <Separator layoutX="52.0" layoutY="244.0" prefHeight="13.0" prefWidth="200.0" />
+            <Separator layoutX="59.0" layoutY="318.0" prefWidth="200.0" />
+            <Button fx:id="changePhotoBTN" alignment="CENTER_RIGHT" layoutX="389.0" layoutY="242.0" mnemonicParsing="false" onAction="#addPhoto" prefHeight="31.0" prefWidth="152.0" style="-fx-background-color: #71d1d3;" text="Add photo" textAlignment="RIGHT" textFill="#003e6f">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Circle fill="#71d1d3" layoutX="459.0" layoutY="125.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="91.0" prefWidth="791.0" style="-fx-background-color: #71d1d3;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="112.0" layoutY="14.0" text="Add Person" textFill="WHITE">
+               <font>
+                  <Font name="Georgia" size="60.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="58.0" fitWidth="69.0" layoutX="33.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/user-add-free-icon-font.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #71d1d3;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="148.0" fitWidth="149.0" layoutX="17.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/superpoblacion.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="52.0" layoutY="102.0" text="Base Data S.A" textFill="WHITE">
+               <font>
+                  <Font name="Bernard MT Condensed" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

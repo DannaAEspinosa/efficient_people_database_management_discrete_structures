@@ -25,7 +25,46 @@ public class MenuBarController {
 
 	}
 
+	@FXML
+	void addPerson(ActionEvent event) {
+		try {
 
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
+			BorderPane root;
+
+			root = (BorderPane) loader.load();
+
+			MenuBarController controller = loader.getController();
+
+			// controller.setMain(this);
+
+			Scene scene = new Scene(root, 791, 555);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+
+			currentStage = stage;
+			currentStage.close();
+
+			BorderPane addPerson;
+			FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/addPersonWindow.fxml"));
+
+			BorderPane root_2 = (BorderPane) loader_2.load();
+
+			addPersonController controller2 = loader_2.getController();
+
+			addPerson = (BorderPane) stage.getScene().getRoot();
+
+			addPerson.setCenter(root_2);
+			// Icon y titulo de la ventana
+			currentStage.getIcons().add(new Image("/img/user-add-free-icon-font.png"));
+			currentStage.setTitle("Base Data S.A | Add Person");
+			stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 
 	@FXML
 	void generateData(ActionEvent event) {
@@ -224,7 +263,6 @@ public class MenuBarController {
 		}
 
 	}
-
 
 	public void setMain(Main main2) {
 		this.main = main2;

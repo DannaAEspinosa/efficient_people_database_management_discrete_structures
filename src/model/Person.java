@@ -1,6 +1,7 @@
 package model;
 
 import enumerations.Nationality;
+import javafx.scene.image.Image;
 
 public class Person {
 
@@ -15,6 +16,8 @@ public class Person {
 	private Nationality country;
 
 	private String code;
+	
+	private Image imagePerson;
 
 	public Person(String name, String lastName, int age,int height, String code, int numCountry) {
 		super();
@@ -204,4 +207,53 @@ public class Person {
 		this.country = country;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public Image getImagePerson() {
+		return imagePerson;
+	}
+
+	public void setImagePerson(Image imagePerson) {
+		this.imagePerson = imagePerson;
+	}
+
+	
 }

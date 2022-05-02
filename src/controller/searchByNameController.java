@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -44,6 +45,9 @@ public class searchByNameController<T>implements Initializable {
 
 	@FXML
 	private Button viewDataBTN;
+	
+	@FXML
+    private Label numberBusqueda;
 
 	@FXML
 	void deletePerson(ActionEvent event) {
