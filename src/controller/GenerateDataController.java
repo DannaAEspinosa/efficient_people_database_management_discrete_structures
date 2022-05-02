@@ -11,11 +11,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 public class GenerateDataController implements Initializable {
 	
 	private Main main;
-	
+
 	
 	
 	public GenerateDataController() {
@@ -58,8 +59,7 @@ public class GenerateDataController implements Initializable {
 		bttSave.setVisible(true);
 		bttGenerate.setVisible(true);
 		//Icon superior y name
-		currentStage.getIcons().add(new Image("/img/superpoblacion.png"));
-		currentStage.setTitle("Base Data S.A");
+
 		
 		
 		

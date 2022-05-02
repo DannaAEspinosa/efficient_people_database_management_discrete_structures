@@ -9,16 +9,19 @@ public class Person {
 	private String lastName;
 
 	private int age;
+	
+	private int height;
 
 	private Nationality country;
 
 	private String code;
 
-	public Person(String name, String lastName, int age, String code, int numCountry) {
+	public Person(String name, String lastName, int age,int height, String code, int numCountry) {
 		super();
 		this.name = name;
 		this.lastName = lastName;
 		this.age = age;
+		this.height=height;
 		this.code = code;
 
 	}
