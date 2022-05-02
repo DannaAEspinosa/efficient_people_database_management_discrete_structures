@@ -18,17 +18,20 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import model.PersonData;
 
-public class searchByFullNameController implements Initializable{
+public class searchByFullNameController<T> implements Initializable{
 	
 	private Main main;
 	private Stage currentStage;
 	
+	private PersonData psClicked;
+	
 	 @FXML
-	    private TableView<?> TableViewFullName;
+	    private TableView<T> TableViewFullName;
 
 	    @FXML
-	    private TableColumn<?, ?> fullNameFull;
+	    private TableColumn<T, T> fullNameFull;
 		@FXML
 		private TextField fullNameTF;
 
@@ -43,7 +46,8 @@ public class searchByFullNameController implements Initializable{
 
 	    @FXML
 	    void deletePerson(ActionEvent event) {
-
+	    	//Delete (revisar)
+			PersonData.data.remove(psClicked);
 	    }
 
 	    @FXML

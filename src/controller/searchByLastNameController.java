@@ -18,16 +18,19 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import model.PersonData;
 
-public class searchByLastNameController implements Initializable{
+public class searchByLastNameController<T> implements Initializable{
 	private Main main;
 	private Stage currentStage;
 	
+	private PersonData psClicked;
+	
 	 @FXML
-	    private TableView<?> TableViewLastName;
+	    private TableView<T> TableViewLastName;
 
 	    @FXML
-	    private TableColumn<?, ?> LastNameTV;
+	    private TableColumn<T, T> LastNameTV;
 	    
 		@FXML
 		private TextField lastNameTF;
@@ -43,7 +46,8 @@ public class searchByLastNameController implements Initializable{
 
 	    @FXML
 	    void deletePerson(ActionEvent event) {
-
+	    	//Delete (revisar)
+			PersonData.data.remove(psClicked);
 	    }
 
 	    @FXML

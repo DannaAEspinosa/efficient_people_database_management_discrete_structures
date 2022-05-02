@@ -19,15 +19,19 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class searchByCodeController implements Initializable {
+import model.PersonData;
+
+public class searchByCodeController<T> implements Initializable {
+
+	private PersonData psClicked;
 
 	private Main main;
 	private Stage currentStage;
 	@FXML
-	private TableView<?> TableViewCode;
+	private TableView<T> TableViewCode;
 
 	@FXML
-	private TableColumn<?, ?> codeTV;
+	private TableColumn<T, T> codeTV;
 
 	@FXML
 	private TextField codeTF;
@@ -43,7 +47,9 @@ public class searchByCodeController implements Initializable {
 
 	@FXML
 	void deletePerson(ActionEvent event) {
-
+		//Delete (revisar)
+		PersonData.data.remove(psClicked);
+		
 	}
 
 	@FXML
