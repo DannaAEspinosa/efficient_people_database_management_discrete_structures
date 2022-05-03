@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import application.Main;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -44,7 +45,12 @@ public class GenerateDataController implements Initializable {
 
     @FXML
     private ImageView imIconGenerate;
-
+    
+    @FXML
+    void generateData(ActionEvent event) {
+    	//int numPeople=Integer.parseInt(numberPeople.getText());
+    	threadProgress();
+    }
 
 	public void setMain(Main main) {
 		this.main = main;
@@ -73,7 +79,10 @@ public class GenerateDataController implements Initializable {
 		progressBar.setStyle("-fx-accent: #71d1d3;");
 
 		numberDataGenerate.setText("10"); //Prueba
-		threadProgress();
+		
+			
+		
+		
 
 	}
 
@@ -123,6 +132,10 @@ public class GenerateDataController implements Initializable {
 		if(numDataGenerate==numPeople) {
 			bttSave.setVisible(true);
 			return true;
+		}else if(numDataGenerate<numPeople) {
+			return false;
+		}else if(numDataGenerate>numPeople) {
+			return false;
 		}
 		return false;
 		

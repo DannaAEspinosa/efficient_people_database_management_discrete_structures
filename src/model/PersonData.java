@@ -28,7 +28,9 @@ public class PersonData {
 	//Cambiar por un arbol
 	private static	ArrayList personData;
 	
-	
+	public PersonData() {
+		
+	}
 
 	
 	//NO FUNCIONAL

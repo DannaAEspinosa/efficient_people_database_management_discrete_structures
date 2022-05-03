@@ -11,7 +11,7 @@ public class Person {
 
 	private int age;
 	
-	private int height;
+	private Double height;
 
 	private Nationality country;
 
@@ -19,7 +19,7 @@ public class Person {
 	
 	private Image imagePerson;
 
-	public Person(String name, String lastName, int age,int height, String code, int numCountry) {
+	public Person(String name, String lastName, int age,Double height, String code, int numCountry) {
 		super();
 		this.name = name;
 		this.lastName = lastName;
@@ -231,11 +231,11 @@ public class Person {
 		this.age = age;
 	}
 
-	public int getHeight() {
+	public Double getHeight() {
 		return height;
 	}
 
-	public void setHeight(int height) {
+	public void setHeight(Double height) {
 		this.height = height;
 	}
 

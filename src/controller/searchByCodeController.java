@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -48,11 +49,35 @@ public class searchByCodeController<T> implements Initializable {
 	
 	@FXML
     private Label numberBusqueda;
+	
+	@FXML
+    private Button SearchByCodeBTN;
+
+  
+
+    @FXML
+    void searchByCode(ActionEvent event) {
+    	
+    	 
+    		for(int i=0;i<PersonData.getData().size();i++) {
+    			
+        		if(codeTF.getText().equals(PersonData.data.get(i).getCode())) {
+        			codeTV.setCellValueFactory(new PropertyValueFactory<>(PersonData.data.get(i).getCode()));
+        		}
+        	}
+    	
+    	
+   
+    }
 
 	@FXML
 	void deletePerson(ActionEvent event) {
 		//Delete (revisar)
+		//Borrar del arrayList.
 		PersonData.data.remove(psClicked);
+		
+		//Borrar del arbol.
+		
 		
 	}
 
@@ -149,6 +174,13 @@ public class searchByCodeController<T> implements Initializable {
 		URL linkViewDataBTN = getClass().getResource("/img/eye-free-icon-font.png");
 		Image imageViewDataBTN = new Image(linkViewDataBTN.toString(), 24, 24, false, true);
 		viewDataBTN.setGraphic(new ImageView(imageViewDataBTN));
+		
+		//Icono button search
+		URL linkSearchBTN = getClass().getResource("/img/search-free-icon-font.png");
+		Image imageSearchBTN = new Image(linkSearchBTN.toString(), 24, 24, false, true);
+		SearchByCodeBTN.setGraphic(new ImageView(imageSearchBTN));
+		
+		
 
 	}
 

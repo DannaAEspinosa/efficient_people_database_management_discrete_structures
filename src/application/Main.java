@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import controller.InitialViewController;
 import controller.MenuBarController;
+import enumerations.Nationality;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,6 +17,8 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.Controller;
+import model.Person;
+import model.PersonData;
 
 public class Main extends Application {
 
@@ -42,6 +45,11 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
+		
+		PersonData prueba = new PersonData();
+		
+		PersonData.data.add(new Person("Danna","Espinosa",18,15.4,"A00378613",1));
+		PersonData.data.add(new Person("Daniel","Erazo",19,15.5,"A00378614",4));
 
 	}
 
