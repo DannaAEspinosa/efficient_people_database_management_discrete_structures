@@ -49,18 +49,21 @@ public class Main extends Application {
 
 	}
 
-	public void toGenerateDate(int numDates) {
+	public boolean toGenerateDate(int numDates) {
 		long startTime = System.currentTimeMillis();
 		controller.toCreatePerson(numDates);
 		long endTime = System.currentTimeMillis() - startTime;
 		System.out.println("end: " + endTime);
-		System.out.println("Guardo");
+		//System.out.println("Guardo");
+		return true;
 	}
 
 	// Abre interfaz generateData
 	public void generateData() {
 		try {
-
+			
+			currentStage.close();
+			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
 			BorderPane root;
 

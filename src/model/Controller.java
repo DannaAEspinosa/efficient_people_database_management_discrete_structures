@@ -57,7 +57,7 @@ public class Controller {
 		String relativePathLastNames = ".\\data\\Apellidos.csv";
 		
 		//Attributes of the class person
-		String name,lastName,fullName,id = "";
+		String name,lastName,fullName,id,imagePath= "";
 		
 		Gender gender = null;
 		
@@ -67,12 +67,15 @@ public class Controller {
 		
 		LocalDate birthDay = null;
 		
+		
+		
 		Person p = null;
 		
 		
 		double randomN = 0;
 		
 		for(int i = 0;i<numDates;i++) {
+			//System.out.println("i: "+(i+1));
 			
 			name = randomValueCSV(relativePathNames);
 			
@@ -102,8 +105,11 @@ public class Controller {
 			
 			id = String.valueOf(i);
 			
-			p = new Person(id,name,lastName,fullName,gender,age,height,country,birthDay);
+			imagePath=randomImage(randomN);
 			
+			p = new Person(id,name,lastName,fullName,gender,age,height,country,birthDay,imagePath);
+			
+			//System.out.println(p.toString());			
 			
 			
 			//To serialize
@@ -116,6 +122,12 @@ public class Controller {
 			
 		}
 		
+		
+	}
+	
+	public String randomImage(double randomN) {
+		
+		return "";
 		
 	}
 	

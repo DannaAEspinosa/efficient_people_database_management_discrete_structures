@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import enumerations.Gender;
 import enumerations.Nationality;
+import javafx.scene.image.Image;
 
 public class Person {
 	
@@ -16,7 +17,7 @@ public class Person {
 	
 	private String fullName;
 	
-	@SuppressWarnings("unused")
+	
 	private Gender gender;
 
 	@SuppressWarnings("unused")
@@ -29,9 +30,11 @@ public class Person {
 
 	@SuppressWarnings("unused")
 	private LocalDate birthDayDate;
+	
+	private String imagePath;
 
 	public Person(String id,String name, String lastName,String fullName,Gender gender, int age,int height,
-			Nationality country,LocalDate birthDayDate) {
+			Nationality country,LocalDate birthDayDate,String imagePath) {
 		
 		this.id = id;
 		this.name = name;
@@ -42,6 +45,7 @@ public class Person {
 		this.height=height;
 		this.country = country;
 		this.birthDayDate = birthDayDate;
+		this.imagePath=imagePath;
 		
 	}
 
@@ -92,9 +96,36 @@ public class Person {
 
 
 
+	public Gender getGender() {
+		return gender;
+	}
+
+
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
+
+
+
+
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return name;
+		return name+lastName;
 	}
 	
 	

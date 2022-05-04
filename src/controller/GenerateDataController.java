@@ -20,7 +20,6 @@ public class GenerateDataController implements Initializable {
 
 	private Main main;
 
-	private Stage currentStage;
 
 	double progress;
 
@@ -99,7 +98,7 @@ public class GenerateDataController implements Initializable {
 	// Metodo para incrementar la barra
 	public void increaseProgress(int numDates) {
 
-		progress += 0.01*100/numDates;
+		progress += 0.01;
 
 		progressBar.setProgress(progress);
 
@@ -107,41 +106,32 @@ public class GenerateDataController implements Initializable {
 
 	public void generatingData(int numDates) {
 
+		
 		new Thread(() -> {
-			while (true) {
-				
-				int numDataGenerate = Integer.parseInt(numberDataGenerate.getText());
-				
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
+			
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			main.toGenerateDate(numDates);
+			
+			
 				// Todo lo que implique cambiar de Ui en este metodo.
 				Platform.runLater(() -> {
 					// Operation de UI
 
-					if (conditionalPersons(numDates,numDataGenerate) == false) {
-						System.out.println(main);
-						main.toGenerateDate(numDates);
-
 						increaseProgress(numDates);
-						numberDataGenerate.setText(String.valueOf(i));
-					}
+						
+					});
 				
-				});
-				i++;
-				if(conditionalPersons(numDates,numDataGenerate)==true) {
-					break;
-				}
+				}).start();
+				
 				
 
 				
 
-			}
-		}).start();
 	}
 
 	/**
@@ -153,7 +143,7 @@ public class GenerateDataController implements Initializable {
 	 */
 	public boolean conditionalPersons(int numPeople, int numDataGenerate) {
 
-		if (numDataGenerate == numPeople) {
+		if ((numDataGenerate+1) == numPeople) {
 			bttSave.setVisible(true);
 			return true;
 		} else if (numDataGenerate < numPeople) {
