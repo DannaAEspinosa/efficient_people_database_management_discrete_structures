@@ -129,34 +129,34 @@ public class Controller {
 	
 	public String randomImage(double randomN) {
 		String a="";
-		if(randomN>=1 && randomN<=50) {
+		if(randomN>=1 && randomN<=10) {
 			a="/photos/1HombreAdulto.jpg";
 			return a;
-		}else if(randomN>=1 && randomN<=50){
+		}else if(randomN>=10.1 && randomN<=20){
 			a="/photos/AdultaFemenino3.jpg";
 			return a;
-		}else if(randomN>=1 && randomN<=50) {
+		}else if(randomN>=20.1 && randomN<=30.1) {
 			 a="/photos/AdultoMayor.jpg";
 			return a;
-		}else if(randomN>=1 && randomN<=50) {
+		}else if(randomN>=30.1 && randomN<=40) {
 			 a="/photos/FemeninoAdulto.jpg";
 			return a;
-		}else if(randomN>=1 && randomN<=50) {
+		}else if(randomN>=40.1 && randomN<=50) {
 			a="/photos/FemeninoNiña10.jpg";
 			return a;
-		}else if(randomN>=1 && randomN<=50) {
+		}else if(randomN>=50.1 && randomN<=60) {
 			 a="/photos/HombreAdulto.jpg";
 			return a;
-		}else if(randomN>=1 && randomN<=50) {
+		}else if(randomN>=60.1 && randomN<=70) {
 			a="/photos/hombreadulto2.jpg";
 			return a;
-		}else if(randomN>=1 && randomN<=50) {
+		}else if(randomN>=70.1 && randomN<=80) {
 			a="/photos/hombreadulto3.jpg";
 			return a;
-		}else if(randomN>=1 && randomN<=50) {
+		}else if(randomN>=80.1 && randomN<=90) {
 			a="/photos/Niña4.jpg";
 			return a;
-		}else if(randomN>=1 && randomN<=50) {
+		}else if(randomN>=90.1 && randomN<=100) {
 			a="/photos/señormayor.jpg";
 			return a;
 		}
