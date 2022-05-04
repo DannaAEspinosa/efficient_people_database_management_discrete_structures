@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Main;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +21,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
+import model.Person;
 import model.PersonData;
 
 public class searchByCodeController<T> implements Initializable {
@@ -30,10 +31,10 @@ public class searchByCodeController<T> implements Initializable {
 	private Main main;
 	private Stage currentStage;
 	@FXML
-	private TableView<T> TableViewCode;
+	private TableView<Person> TableViewCode;
 
 	@FXML
-	private TableColumn<T, T> codeTV;
+	private TableColumn<Person, String> codeTV;
 
 	@FXML
 	private TextField codeTF;
@@ -62,8 +63,16 @@ public class searchByCodeController<T> implements Initializable {
     		for(int i=0;i<PersonData.getData().size();i++) {
     			
         		if(codeTF.getText().equals(PersonData.data.get(i).getCode())) {
-        			codeTV.setCellValueFactory(new PropertyValueFactory<>(PersonData.data.get(i).getCode()));
-        		}
+        			codeTV.setCellValueFactory(new PropertyValueFactory<Person,String>("code"));
+        			System.out.println(PersonData.getData().get(i).getCode());
+        			
+        			
+    		}
+        		TableViewCode.setItems(PersonData.getData());
+        		
+        		
+        		
+        		
         	}
     	
     	
@@ -187,6 +196,9 @@ public class searchByCodeController<T> implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		imageIcons();
+		viewDataBTN.setDisable(true);
+		deleteBTN.setDisable(true);
+		updateBTN.setDisable(true);
 	}
 
 }

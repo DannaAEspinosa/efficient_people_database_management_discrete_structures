@@ -153,5 +153,8 @@ public class searchByFullNameController<T> implements Initializable{
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
 			imageIcons();
+			viewDataBTN.setDisable(true);
+			deleteBTN.setDisable(true);
+			updateBTN.setDisable(true);
 		}
 }
