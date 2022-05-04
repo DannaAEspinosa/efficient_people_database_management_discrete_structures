@@ -1,7 +1,8 @@
-package model;
+package generics;
+
 import enumerations.Color;
 
-public class RedBlackNode<T extends Comparable<T>> {
+public class RedBlackNode<T> {
 	
 	//Attributes
 	private Color color;
@@ -9,7 +10,6 @@ public class RedBlackNode<T extends Comparable<T>> {
 	private RedBlackNode<T> father;
 	private RedBlackNode<T> leftSon;
 	private RedBlackNode<T> rightSon;
-	
 	
 	/**
 	 * It builds a red node all nodes when they are created are red.
@@ -25,7 +25,6 @@ public class RedBlackNode<T extends Comparable<T>> {
 	 * It builds a black node without value, all the node must have a null black node.
 	 */
 	public RedBlackNode() {
-		
 		
 	}
 	
@@ -72,9 +71,5 @@ public class RedBlackNode<T extends Comparable<T>> {
 	public void setRightSon(RedBlackNode<T> rightSon) {
 		this.rightSon = rightSon;
 	}
-	
-	
-	
-	
-	
+
 }
