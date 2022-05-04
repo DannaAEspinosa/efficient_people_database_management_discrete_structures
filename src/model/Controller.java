@@ -76,7 +76,15 @@ public class Controller {
 			
 			name = randomValueCSV(relativePathNames);
 			
+			while(name == null) {
+				name = randomValueCSV(relativePathNames);
+			}
+			
 			lastName = randomValueCSV(relativePathLastNames);
+			
+			while(lastName == null) {
+				lastName = randomValueCSV(relativePathLastNames);
+			}
 			
 			fullName = name+" "+lastName;
 			
