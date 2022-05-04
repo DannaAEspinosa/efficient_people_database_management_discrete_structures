@@ -111,9 +111,9 @@ public class GenerateDataController implements Initializable {
 			while (true) {
 				
 				int numDataGenerate = Integer.parseInt(numberDataGenerate.getText());
-				i++;
+				
 				try {
-					Thread.sleep(1000);
+					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -130,9 +130,9 @@ public class GenerateDataController implements Initializable {
 						increaseProgress(numDates);
 						numberDataGenerate.setText(String.valueOf(i));
 					}
-
-				});
 				
+				});
+				i++;
 				if(conditionalPersons(numDates,numDataGenerate)==true) {
 					break;
 				}
