@@ -24,39 +24,47 @@ public class GenerateDataController implements Initializable {
 
 	double progress;
 
+	int i = 0;
+	
+	
+
+
 	public GenerateDataController() {
 
 	}
 
-    @FXML
-    private TextField numberPeople;
+	@FXML
+	private TextField numberPeople;
 
-    @FXML
-    private Button bttGenerate;
+	@FXML
+	private Button bttGenerate;
 
-    @FXML
-    private ProgressBar progressBar;
+	@FXML
+	private ProgressBar progressBar;
 
-    @FXML
-    private Button bttSave;
+	@FXML
+	private Button bttSave;
 
-    @FXML
-    private Label numberDataGenerate;
+	@FXML
+	private Label numberDataGenerate;
 
-    @FXML
-    private ImageView imIconGenerate;
-    
-    @FXML
-    void generateData(ActionEvent event) {
-    	
-    	int numDates = Integer.parseInt(numberPeople.getText()); 
-    	
-    	main.toGenerateDate(numDates);
-    	
-    	//generatingData(numDates);
-    			
- 
-    }
+	@FXML
+	private ImageView imIconGenerate;
+
+	@FXML
+	void generateData(ActionEvent event) {
+		//textfield
+		int numDates = Integer.parseInt(numberPeople.getText());
+		//label
+		//int numDataGenerate = Integer.parseInt(numberDataGenerate.getText());
+
+
+		
+		//main.toGenerateDate(numDates);
+
+		 generatingData(numDates);
+
+	}
 
 	public void setMain(Main main) {
 		this.main = main;
@@ -78,77 +86,82 @@ public class GenerateDataController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		placeImageButtons();
-	
+
 		bttSave.setVisible(false);
 		bttGenerate.setVisible(true);
 
 		progressBar.setStyle("-fx-accent: #71d1d3;");
 
-		numberDataGenerate.setText("0"); //Prueba
-		
-	
+		numberDataGenerate.setText("0"); // Prueba
+
 	}
 
-	//Metodo para incrementar la barra
+	// Metodo para incrementar la barra
 	public void increaseProgress(int numDates) {
 
-		progress += 0.1*numDates;
+		progress += 0.01*100/numDates;
 
 		progressBar.setProgress(progress);
 
 	}
-	
+
 	public void generatingData(int numDates) {
-		int i = 0;
-		new Thread(()->{
-			while(true) {
+
+		new Thread(() -> {
+			while (true) {
+				
+				int numDataGenerate = Integer.parseInt(numberDataGenerate.getText());
+				i++;
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				//Todo lo que implique cambiar de Ui en este metodo.
-				Platform.runLater(()->{
-					//Operation de UI
-					
-					if(conditionalPersons()==false) {
+				
+				// Todo lo que implique cambiar de Ui en este metodo.
+				Platform.runLater(() -> {
+					// Operation de UI
+
+					if (conditionalPersons(numDates,numDataGenerate) == false) {
 						System.out.println(main);
 						main.toGenerateDate(numDates);
-						
+
 						increaseProgress(numDates);
+						numberDataGenerate.setText(String.valueOf(i));
 					}
-			
-					
+
 				});
+				
+				if(conditionalPersons(numDates,numDataGenerate)==true) {
+					break;
+				}
+				
+
+				
+
 			}
 		}).start();
 	}
 
-	
-
 	/**
 	 * Condicional para parar la barra de progreso
-	 * @return boolean
-	 * true si el numero de personas generadas es igual a las personas que el suuario digito(Si es igual, entonces aparece el boton save)
-	 * false si es menor.
+	 * 
+	 * @return boolean true si el numero de personas generadas es igual a las
+	 *         personas que el suuario digito(Si es igual, entonces aparece el boton
+	 *         save) false si es menor.
 	 */
-	public boolean conditionalPersons() {
-		//Convertir el textfield y el label a int para hacer las comparaciones
-		int numPeople=Integer.parseInt(numberPeople.getText());
-		int numDataGenerate=Integer.parseInt(numberDataGenerate.getText());
-		if(numDataGenerate==numPeople) {
+	public boolean conditionalPersons(int numPeople, int numDataGenerate) {
+
+		if (numDataGenerate == numPeople) {
 			bttSave.setVisible(true);
 			return true;
-		}else if(numDataGenerate<numPeople) {
+		} else if (numDataGenerate < numPeople) {
 			return false;
-		}else if(numDataGenerate>numPeople) {
+		} else if (numDataGenerate > numPeople) {
 			return false;
 		}
 		return false;
-		
+
 	}
 }
-
-	
-	
