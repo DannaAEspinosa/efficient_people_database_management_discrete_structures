@@ -61,80 +61,12 @@ public class searchByFullNameController<T> implements Initializable{
 
 	    @FXML
 	    void updateData(ActionEvent event) {
-	    	try {
-
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
-				BorderPane root;
-
-				root = (BorderPane) loader.load();
-
-				MenuBarController controller = loader.getController();
-
-				Scene scene = new Scene(root, 791, 556);
-				Stage stage = new Stage();
-				stage.setScene(scene);
-
-				currentStage = stage;
-				currentStage.close();
-
-				BorderPane updatePerson;
-				FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/updatePersonWindow.fxml"));
-
-				BorderPane root_2 = (BorderPane) loader_2.load();
-
-				updatePersonController controller2 = loader_2.getController();
-
-				updatePerson = (BorderPane) stage.getScene().getRoot();
-
-				updatePerson.setCenter(root_2);
-
-				currentStage.getIcons().add(new Image("/img/rotate-right-free-icon-font.png"));
-				currentStage.setTitle("Base Data S.A | Update Data");
-
-				stage.show();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+	    	main.updatePerson();
 	    }
 
 	    @FXML
 	    void viewData(ActionEvent event) {
-	    	try {
-
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
-				BorderPane root;
-
-				root = (BorderPane) loader.load();
-
-				MenuBarController controller = loader.getController();
-
-				Scene scene = new Scene(root, 791, 556);
-				Stage stage = new Stage();
-				stage.setScene(scene);
-
-				currentStage = stage;
-				currentStage.close();
-
-				BorderPane viewData;
-				FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/viewDataWindow.fxml"));
-
-				BorderPane root_2 = (BorderPane) loader_2.load();
-
-				viewDataController controller2 = loader_2.getController();
-
-				viewData = (BorderPane) stage.getScene().getRoot();
-
-				viewData.setCenter(root_2);
-
-				currentStage.getIcons().add(new Image("/img/eye-free-icon-font.png"));
-				currentStage.setTitle("Base Data S.A | View Data");
-
-				stage.show();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+	    	main.viewData();
 	    }
 	    
 	    public void imageIcons() {

@@ -52,6 +52,8 @@ public class Controller {
 		currentYear = date.getYear()+1900;
 	}
 	
+
+	
 	public void toCreatePerson(int numDates) {
 		String relativePathNames = ".\\data\\babynames-clean.csv";
 		String relativePathLastNames = ".\\data\\Apellidos.csv";
@@ -132,31 +134,31 @@ public class Controller {
 		if(randomN>=1 && randomN<=10) {
 			a="/photos/1HombreAdulto.jpg";
 			return a;
-		}else if(randomN>=10.1 && randomN<=20){
+		}else if(randomN>10 && randomN<=20){
 			a="/photos/AdultaFemenino3.jpg";
 			return a;
-		}else if(randomN>=20.1 && randomN<=30.1) {
+		}else if(randomN>20 && randomN<=30) {
 			 a="/photos/AdultoMayor.jpg";
 			return a;
-		}else if(randomN>=30.1 && randomN<=40) {
+		}else if(randomN>30 && randomN<=40) {
 			 a="/photos/FemeninoAdulto.jpg";
 			return a;
-		}else if(randomN>=40.1 && randomN<=50) {
+		}else if(randomN>40 && randomN<=50) {
 			a="/photos/FemeninoNiña10.jpg";
 			return a;
-		}else if(randomN>=50.1 && randomN<=60) {
+		}else if(randomN>50 && randomN<=60) {
 			 a="/photos/HombreAdulto.jpg";
 			return a;
-		}else if(randomN>=60.1 && randomN<=70) {
+		}else if(randomN>60 && randomN<=70) {
 			a="/photos/hombreadulto2.jpg";
 			return a;
-		}else if(randomN>=70.1 && randomN<=80) {
+		}else if(randomN>70 && randomN<=80) {
 			a="/photos/hombreadulto3.jpg";
 			return a;
-		}else if(randomN>=80.1 && randomN<=90) {
+		}else if(randomN>80 && randomN<=90) {
 			a="/photos/Niña4.jpg";
 			return a;
-		}else if(randomN>=90.1 && randomN<=100) {
+		}else if(randomN>90 && randomN<=100) {
 			a="/photos/señormayor.jpg";
 			return a;
 		}

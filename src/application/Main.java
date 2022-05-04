@@ -10,6 +10,8 @@ import controller.searchByCodeController;
 import controller.searchByFullNameController;
 import controller.searchByLastNameController;
 import controller.searchByNameController;
+import controller.updatePersonController;
+import controller.viewDataController;
 import enumerations.Nationality;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -54,16 +56,16 @@ public class Main extends Application {
 		controller.toCreatePerson(numDates);
 		long endTime = System.currentTimeMillis() - startTime;
 		System.out.println("end: " + endTime);
-		//System.out.println("Guardo");
+		// System.out.println("Guardo");
 		return true;
 	}
 
 	// Abre interfaz generateData
 	public void generateData() {
 		try {
-			
+
 			currentStage.close();
-			
+
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
 			BorderPane root;
 
@@ -344,5 +346,81 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 
+	}
+
+	public void viewData() {
+		try {
+
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
+			BorderPane root;
+
+			root = (BorderPane) loader.load();
+
+			MenuBarController controller = loader.getController();
+			controller.setMain(this);
+			Scene scene = new Scene(root, 791, 556);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+
+			currentStage = stage;
+			currentStage.close();
+
+			BorderPane viewData;
+			FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/viewDataWindow.fxml"));
+
+			BorderPane root_2 = (BorderPane) loader_2.load();
+
+			viewDataController controller2 = loader_2.getController();
+			controller2.setMain(this);
+			viewData = (BorderPane) stage.getScene().getRoot();
+
+			viewData.setCenter(root_2);
+
+			currentStage.getIcons().add(new Image("/img/eye-free-icon-font.png"));
+			currentStage.setTitle("Base Data S.A | View Data");
+
+			stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void updatePerson() {
+		try {
+
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
+			BorderPane root;
+
+			root = (BorderPane) loader.load();
+
+			MenuBarController controller = loader.getController();
+			controller.setMain(this);
+			Scene scene = new Scene(root, 791, 556);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+
+			currentStage = stage;
+			currentStage.close();
+
+			BorderPane updatePerson;
+			FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/updatePersonWindow.fxml"));
+
+			BorderPane root_2 = (BorderPane) loader_2.load();
+
+			updatePersonController controller2 = loader_2.getController();
+			controller2.setMain(this);
+			updatePerson = (BorderPane) stage.getScene().getRoot();
+
+			updatePerson.setCenter(root_2);
+
+			currentStage.getIcons().add(new Image("/img/rotate-right-free-icon-font.png"));
+			currentStage.setTitle("Base Data S.A | Update Data");
+
+			stage.show();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
