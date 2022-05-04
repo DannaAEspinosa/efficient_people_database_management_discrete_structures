@@ -14,7 +14,6 @@ public class Person {
 
 	private String lastName;
 	
-	@SuppressWarnings("unused")
 	private String fullName;
 	
 	@SuppressWarnings("unused")
@@ -31,9 +30,10 @@ public class Person {
 	@SuppressWarnings("unused")
 	private LocalDate birthDayDate;
 
-	public Person(String name, String lastName,String fullName,Gender gender, int age,int height,
+	public Person(String id,String name, String lastName,String fullName,Gender gender, int age,int height,
 			Nationality country,LocalDate birthDayDate) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.lastName = lastName;
 		this.fullName = fullName;

@@ -68,42 +68,7 @@ public class MenuBarController {
 
 	@FXML
 	void generateData(ActionEvent event) {
-		try {
-
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
-			BorderPane root;
-
-			root = (BorderPane) loader.load();
-
-			MenuBarController controller = loader.getController();
-
-			// controller.setMain(this);
-
-			Scene scene = new Scene(root, 791, 555);
-			Stage stage = new Stage();
-			stage.setScene(scene);
-
-			currentStage = stage;
-			currentStage.close();
-
-			BorderPane generateData;
-			FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/generateData.fxml"));
-
-			BorderPane root_2 = (BorderPane) loader_2.load();
-
-			GenerateDataController controller2 = loader_2.getController();
-
-			generateData = (BorderPane) stage.getScene().getRoot();
-
-			generateData.setCenter(root_2);
-			// Icon y titulo de la ventana
-			currentStage.getIcons().add(new Image("/img/portrait-free-icon-font.png"));
-			currentStage.setTitle("Base Data S.A | Generate Data");
-			stage.show();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		main.generateData();
 
 	}
 
