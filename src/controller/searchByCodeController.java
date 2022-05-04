@@ -62,9 +62,9 @@ public class searchByCodeController<T> implements Initializable {
     	 
     		for(int i=0;i<PersonData.getData().size();i++) {
     			
-        		if(codeTF.getText().equals(PersonData.data.get(i).getCode())) {
+        		if(codeTF.getText().equals(PersonData.data.get(i).getId())) {
         			codeTV.setCellValueFactory(new PropertyValueFactory<Person,String>("code"));
-        			System.out.println(PersonData.getData().get(i).getCode());
+        			System.out.println(PersonData.getData().get(i).getId());
         			
         			
     		}

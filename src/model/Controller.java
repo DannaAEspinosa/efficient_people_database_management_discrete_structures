@@ -9,6 +9,9 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 
+import comparators.CompareByFullName;
+import comparators.CompareById;
+import comparators.CompareByLastName;
 import comparators.CompareByName;
 import enumerations.Gender;
 import enumerations.Nationality;
@@ -18,7 +21,6 @@ public class Controller {
 	
 	//Attributes
 	
-	@SuppressWarnings("unused")
 	private RedBlackTree<Person> treeRBName,treeRBLastName,treeRBFullName,treeRBId;
 
 	
@@ -28,17 +30,23 @@ public class Controller {
 
 
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Controller() {
+		
 		//To initialize trees
-		@SuppressWarnings("rawtypes")
 		Comparator cName = new CompareByName();
+		Comparator cLastName = new CompareByLastName();
+		Comparator cFullName = new CompareByFullName();
+		Comparator cId = new CompareById();
+		
 		
 		treeRBName = new RedBlackTree<Person>(cName);
 		
+		treeRBLastName = new RedBlackTree<Person>(cLastName);
 		
+		treeRBFullName = new RedBlackTree<Person>(cFullName);
 		
-		
+		treeRBId = new RedBlackTree<Person>(cId);
 		
 		date = new Date();
 		currentYear = date.getYear()+1900;
@@ -49,7 +57,7 @@ public class Controller {
 		String relativePathLastNames = ".\\data\\Apellidos.csv";
 		
 		//Attributes of the class person
-		String name,lastName,fullName = "";
+		String name,lastName,fullName,id = "";
 		
 		Gender gender = null;
 		
@@ -84,8 +92,19 @@ public class Controller {
 			
 			birthDay =  generateBirthDayDate(age);
 			
-			p = new Person(name,lastName,fullName,gender,age,height,country,birthDay);
-		
+			id = String.valueOf(i);
+			
+			p = new Person(id,name,lastName,fullName,gender,age,height,country,birthDay);
+			
+			
+			
+			//To serialize
+			
+			treeRBName.insert(p);
+			treeRBLastName.insert(p);
+			treeRBFullName.insert(p);
+			treeRBId.insert(p);
+			
 			
 		}
 		

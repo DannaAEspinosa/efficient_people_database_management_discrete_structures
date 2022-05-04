@@ -48,8 +48,14 @@ public class GenerateDataController implements Initializable {
     
     @FXML
     void generateData(ActionEvent event) {
-    	//int numPeople=Integer.parseInt(numberPeople.getText());
-    	threadProgress();
+    	
+    	int numDates = Integer.parseInt(numberPeople.getText()); 
+    	
+    	main.toGenerateDate(numDates);
+    	
+    	//generatingData(numDates);
+    			
+ 
     }
 
 	public void setMain(Main main) {
@@ -78,25 +84,22 @@ public class GenerateDataController implements Initializable {
 
 		progressBar.setStyle("-fx-accent: #71d1d3;");
 
-		numberDataGenerate.setText("10"); //Prueba
+		numberDataGenerate.setText("0"); //Prueba
 		
-			
-		
-		
-
+	
 	}
 
 	//Metodo para incrementar la barra
-	public void increaseProgress() {
+	public void increaseProgress(int numDates) {
 
-		progress += 0.1;
+		progress += 0.1*numDates;
 
 		progressBar.setProgress(progress);
 
 	}
-
-	//Hilo para la barra de progreso
-	public void threadProgress() {
+	
+	public void generatingData(int numDates) {
+		int i = 0;
 		new Thread(()->{
 			while(true) {
 				try {
@@ -105,19 +108,24 @@ public class GenerateDataController implements Initializable {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
 				//Todo lo que implique cambiar de Ui en este metodo.
 				Platform.runLater(()->{
 					//Operation de UI
 					
 					if(conditionalPersons()==false) {
-						increaseProgress();
+						System.out.println(main);
+						main.toGenerateDate(numDates);
+						
+						increaseProgress(numDates);
 					}
+			
 					
 				});
 			}
 		}).start();
 	}
+
+	
 
 	/**
 	 * Condicional para parar la barra de progreso
