@@ -125,9 +125,43 @@ public class Controller {
 		
 	}
 	
+
+	
 	public String randomImage(double randomN) {
-		
-		return "";
+		String a="";
+		if(randomN>=1 && randomN<=50) {
+			a="/photos/1HombreAdulto.jpg";
+			return a;
+		}else if(randomN>=1 && randomN<=50){
+			a="/photos/AdultaFemenino3.jpg";
+			return a;
+		}else if(randomN>=1 && randomN<=50) {
+			 a="/photos/AdultoMayor.jpg";
+			return a;
+		}else if(randomN>=1 && randomN<=50) {
+			 a="/photos/FemeninoAdulto.jpg";
+			return a;
+		}else if(randomN>=1 && randomN<=50) {
+			a="/photos/FemeninoNiña10.jpg";
+			return a;
+		}else if(randomN>=1 && randomN<=50) {
+			 a="/photos/HombreAdulto.jpg";
+			return a;
+		}else if(randomN>=1 && randomN<=50) {
+			a="/photos/hombreadulto2.jpg";
+			return a;
+		}else if(randomN>=1 && randomN<=50) {
+			a="/photos/hombreadulto3.jpg";
+			return a;
+		}else if(randomN>=1 && randomN<=50) {
+			a="/photos/Niña4.jpg";
+			return a;
+		}else if(randomN>=1 && randomN<=50) {
+			a="/photos/señormayor.jpg";
+			return a;
+		}
+		return a;
+	
 		
 	}
 	
