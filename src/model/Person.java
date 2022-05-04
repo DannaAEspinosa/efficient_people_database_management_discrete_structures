@@ -32,7 +32,7 @@ public class Person {
 
 	public Person(String id,String name, String lastName,String fullName,Gender gender, int age,int height,
 			Nationality country,LocalDate birthDayDate) {
-		super();
+		
 		this.id = id;
 		this.name = name;
 		this.lastName = lastName;
