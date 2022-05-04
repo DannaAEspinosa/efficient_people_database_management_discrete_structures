@@ -23,7 +23,15 @@ import model.Person;
 import model.PersonData;
 
 public class searchByNameController<T>implements Initializable {
+
+	
 	private Main main;
+	
+
+	public void setMain(Main main) {
+		this.main = main;
+	}
+	
 	private Stage currentStage;
 	
 	private Person psClicked;

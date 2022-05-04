@@ -26,9 +26,16 @@ import model.PersonData;
 
 public class searchByCodeController<T> implements Initializable {
 
+	
 	private PersonData psClicked;
 
 	private Main main;
+	
+
+	public void setMain(Main main) {
+		this.main = main;
+	}
+
 	private Stage currentStage;
 	@FXML
 	private TableView<Person> TableViewCode;

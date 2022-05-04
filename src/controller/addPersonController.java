@@ -3,6 +3,7 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,7 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class addPersonController implements Initializable{
-	
+	private Main main;
 
     @FXML
     private ImageView imgPerson;
@@ -56,6 +57,10 @@ public class addPersonController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 	
 		imageIcons();
+	}
+	
+	public void setMain(Main main) {
+		this.main = main;
 	}
 
 

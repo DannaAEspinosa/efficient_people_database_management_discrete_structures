@@ -3,13 +3,20 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
 public class viewDataController implements Initializable{
+	private Main main;
+	
 
+	public void setMain(Main main) {
+		this.main = main;
+	}
+	
     @FXML
     private ImageView imgPerson;
 

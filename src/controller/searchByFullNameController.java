@@ -24,6 +24,11 @@ import model.PersonData;
 public class searchByFullNameController<T> implements Initializable{
 	
 	private Main main;
+	
+
+	public void setMain(Main main) {
+		this.main = main;
+	}
 	private Stage currentStage;
 	
 	private PersonData psClicked;

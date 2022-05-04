@@ -22,7 +22,15 @@ import javafx.stage.Stage;
 import model.PersonData;
 
 public class searchByLastNameController<T> implements Initializable{
+	
+	
 	private Main main;
+	
+
+	public void setMain(Main main) {
+		this.main = main;
+	}
+	
 	private Stage currentStage;
 	
 	private PersonData psClicked;
