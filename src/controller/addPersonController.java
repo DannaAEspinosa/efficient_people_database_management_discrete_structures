@@ -9,6 +9,7 @@ import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 
 import application.Main;
+import enumerations.Gender;
 import enumerations.Nationality;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -49,7 +50,7 @@ public class addPersonController implements Initializable{
     private TextField heightPersonTF;
 
     @FXML
-    private ComboBox<Nationality> nationalityPersonCB;   
+    private ComboBox<String> nationalityPersonCB;   
 
     @FXML
     private Label codeUniquePerson;
@@ -64,7 +65,7 @@ public class addPersonController implements Initializable{
     private Label ageLb;
 
     @FXML
-    private ComboBox<?> genderCB;
+    private ComboBox<Gender> genderCB;
 
     @FXML
     void addPhoto(ActionEvent event) {
@@ -100,6 +101,10 @@ public class addPersonController implements Initializable{
     			changePhotoBTN.setGraphic(new ImageView(imageAddPhoto));
     }
     
+    public void fillComboBoxNationality() {
+    	
+    
+    }
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
