@@ -125,7 +125,8 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return name+lastName;
+		
+		return ("Name: "+name+"\n"+"Last Name: "+lastName+"\n"+"Id: "+id);
 	}
 	
 	

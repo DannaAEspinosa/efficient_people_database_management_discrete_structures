@@ -4,9 +4,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.nio.charset.Charset;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import comparators.CompareByFullName;
@@ -105,13 +107,13 @@ public class Controller {
 			
 			birthDay =  generateBirthDayDate(age);
 			
-			id = String.valueOf(i);
+			id = generateId();
 			
 			imagePath=randomImage(randomN);
 			
 			p = new Person(id,name,lastName,fullName,gender,age,height,country,birthDay,imagePath);
 			
-			//System.out.println(p.toString());			
+			System.out.println(p.toString());			
 			
 			
 			//To serialize
@@ -126,6 +128,40 @@ public class Controller {
 		
 		
 	}
+	
+	public String generateId() {
+		
+		int i=6;
+
+        byte[] bytearray;
+        String mystring;
+        StringBuffer thebuffer;
+        
+        bytearray = new byte[256]; 
+        new Random().nextBytes(bytearray); 
+
+        mystring 
+            = new String(bytearray, Charset.forName("UTF-8")); 
+
+        // Create the StringBuffer
+        thebuffer = new StringBuffer(); 
+
+        for (int m = 0; m < mystring.length(); m++) { 
+
+            char n = mystring.charAt(m); 
+
+            if (((n >= 'A' && n <= 'Z') 
+                || (n >= '0' && n <= '9')) 
+                && (i > 0)) { 
+
+                thebuffer.append(n); 
+                i--; 
+            } 
+        } 
+
+        // resulting string 
+        return thebuffer.toString(); 
+    } 
 	
 
 	
@@ -187,6 +223,8 @@ public class Controller {
 		
 		return randomValue;
 	}
+	
+
 	
 	public Nationality selectNationality(double randomN) {
 		
