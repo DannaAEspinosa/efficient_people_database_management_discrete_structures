@@ -23,6 +23,7 @@ public class GenerateDataController implements Initializable {
 
 	double progress;
 	
+	int i;
 
 	public GenerateDataController() {
 
@@ -94,7 +95,7 @@ public class GenerateDataController implements Initializable {
 	// Metodo para incrementar la barra
 	public void increaseProgress(int numDates) {
 
-		progress += 0.01;
+		progress += 0.01*100/numDates;
 
 		progressBar.setProgress(progress);
 
@@ -102,7 +103,7 @@ public class GenerateDataController implements Initializable {
 	
 	public void generatingData(int numDates) {
 		new Thread(()->{
-			for(int i = 0;i<numDates;i++) {
+			for( i = 0;i<numDates;i++) {
 				try {
 					Thread.sleep(0);
 				} catch (InterruptedException e) {
@@ -110,9 +111,10 @@ public class GenerateDataController implements Initializable {
 					e.printStackTrace();
 				}
 				//Todo lo que implique cambiar de Ui en este metodo.
+				main.toGenerateDate(1);
 				Platform.runLater(()->{
 					//Operation de UI
-					main.toGenerateDate(1);
+					numberDataGenerate.setText(String.valueOf(i));
 					increaseProgress(numDates);
 					
 					
