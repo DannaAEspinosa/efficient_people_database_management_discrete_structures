@@ -14,7 +14,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
+
 
 public class GenerateDataController implements Initializable {
 
@@ -22,11 +22,7 @@ public class GenerateDataController implements Initializable {
 
 
 	double progress;
-
-	int i = 0;
 	
-	
-
 
 	public GenerateDataController() {
 
@@ -103,35 +99,26 @@ public class GenerateDataController implements Initializable {
 		progressBar.setProgress(progress);
 
 	}
-
+	
 	public void generatingData(int numDates) {
-
-		
-		new Thread(() -> {
-			
-			try {
-				Thread.sleep(10);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		new Thread(()->{
+			for(int i = 0;i<numDates;i++) {
+				try {
+					Thread.sleep(0);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				//Todo lo que implique cambiar de Ui en este metodo.
+				Platform.runLater(()->{
+					//Operation de UI
+					main.toGenerateDate(1);
+					increaseProgress(numDates);
+					
+					
+				});
 			}
-			main.toGenerateDate(numDates);
-			
-			
-				// Todo lo que implique cambiar de Ui en este metodo.
-				Platform.runLater(() -> {
-					// Operation de UI
-
-						increaseProgress(numDates);
-						
-					});
-				
-				}).start();
-				
-				
-
-				
-
+		}).start();
 	}
 
 	/**
