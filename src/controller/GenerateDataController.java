@@ -51,12 +51,6 @@ public class GenerateDataController implements Initializable {
 	void generateData(ActionEvent event) {
 		//textfield
 		int numDates = Integer.parseInt(numberPeople.getText());
-		//label
-		//int numDataGenerate = Integer.parseInt(numberDataGenerate.getText());
-
-
-		
-		//main.toGenerateDate(numDates);
 
 		 generatingData(numDates);
 
