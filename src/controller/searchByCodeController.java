@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 import model.Person;
 import model.PersonData;
 
-public class searchByCodeController<T> implements Initializable {
+public class searchByCodeController implements Initializable {
 
 	
 	private PersonData psClicked;

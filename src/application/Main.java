@@ -6,11 +6,11 @@ import java.time.LocalDate;
 import controller.GenerateDataController;
 import controller.InitialViewController;
 import controller.MenuBarController;
+import controller.SearchByNameViewController;
 import controller.addPersonController;
 import controller.searchByCodeController;
 import controller.searchByFullNameController;
 import controller.searchByLastNameController;
-import controller.searchByNameController;
 import controller.updatePersonController;
 import controller.viewDataController;
 import enumerations.Gender;
@@ -114,6 +114,7 @@ public class Main extends Application {
 			root = (BorderPane) loader.load();
 
 			MenuBarController controller = loader.getController();
+			controller.setMain(this);
 
 			controller.setMain(this);
 
@@ -145,6 +146,44 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public void newSearchByName() {
+		try {
+			
+			currentStage.close();
+		
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
+			BorderPane root;
+	
+			root = (BorderPane) loader.load();
+	
+			MenuBarController controller = loader.getController();
+			controller.setMain(this);
+			Scene scene = new Scene(root,900,525);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			
+			currentStage = stage;
+			currentStage.close();
+			
+			
+			FXMLLoader loaderSBN = new FXMLLoader(getClass().getResource("../ui/searchByName.fxml"));
+			BorderPane rootSBN = (BorderPane)loaderSBN.load();
+		
+			SearchByNameViewController controllerSBN = loaderSBN.getController();
+			controllerSBN.setMain(this);
+			
+			BorderPane searchByName = (BorderPane) stage.getScene().getRoot();
+			
+			searchByName.setCenter(rootSBN);
+			
+			stage.show();
+		
+		
+		}catch(IOException e){
+			e.printStackTrace();
+		}
 	}
 
 	public void searchByCode() {
@@ -207,6 +246,7 @@ public class Main extends Application {
 
 			BorderPane root_2 = (BorderPane) loader_2.load();
 
+			@SuppressWarnings("rawtypes")
 			searchByFullNameController controller2 = loader_2.getController();
 
 			controller2.setMain(this);
@@ -246,6 +286,7 @@ public class Main extends Application {
 
 			BorderPane root_2 = (BorderPane) loader_2.load();
 
+			@SuppressWarnings("rawtypes")
 			searchByLastNameController controller2 = loader_2.getController();
 			controller2.setMain(this);
 			searchByLastName = (BorderPane) stage.getScene().getRoot();
@@ -262,48 +303,15 @@ public class Main extends Application {
 		}
 	}
 
-	public void searchByName() {
-		try {
-
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
-			BorderPane root;
-
-			root = (BorderPane) loader.load();
-
-			MenuBarController controller = loader.getController();
-			controller.setMain(this);
-			Scene scene = new Scene(root, 791, 556);
-			Stage stage = new Stage();
-			stage.setScene(scene);
-
-			currentStage = stage;
-			currentStage.close();
-
-			BorderPane searchByName;
-			FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/searchByNameWindow.fxml"));
-
-			BorderPane root_2 = (BorderPane) loader_2.load();
-
-			searchByNameController controller2 = loader_2.getController();
-			controller2.setMain(this);
-			searchByName = (BorderPane) stage.getScene().getRoot();
-
-			searchByName.setCenter(root_2);
-
-			currentStage.getIcons().add(new Image("/img/search-free-icon-font.png"));
-			currentStage.setTitle("Base Data S.A | Search By Name");
-
-			stage.show();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 
 	// Abre interfaz initialView
 	public void intialView() {
 		try {
-
+			
+			if(currentStage != null) {
+				currentStage.close();
+			}
+			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
 			BorderPane root;
 
@@ -424,6 +432,10 @@ public class Main extends Application {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void exit() {
+		currentStage.close();
 	}
 	
 	public void addPerson(String name, String lastName, String fullName, int age,int height,String id, Nationality nationalityString, Gender gender,String imagePath,LocalDate doB) {
