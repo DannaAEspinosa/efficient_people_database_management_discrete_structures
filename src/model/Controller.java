@@ -53,7 +53,9 @@ public class Controller {
 		date = new Date();
 		currentYear = date.getYear()+1900;
 	}
-	
+	public void showTree() {
+		treeRBName.toShowHelp();
+	}
 
 	
 	public void toCreatePerson(int numDates) {
@@ -113,7 +115,7 @@ public class Controller {
 			
 			p = new Person(id,name,lastName,fullName,gender,age,height,country,birthDay,imagePath);
 			
-			System.out.println(p.toString());			
+			//System.out.println(p.toString());			
 			
 			
 			//To serialize
@@ -128,6 +130,7 @@ public class Controller {
 		
 		
 	}
+	
 	
 	public String generateId() {
 		
@@ -418,6 +421,23 @@ public class Controller {
 	
 	public double generateRandomNumberForPercent() {
 		return (Math.random()*(100)+1);
+	}
+
+
+
+	public void addPerson(String name, String lastName, String fullName, int age,int height,String id, Nationality nationalityString, Gender gender,String imagePath,LocalDate doB) {
+		
+		Person p=null;
+		p = new Person(id,name,lastName,fullName,gender,age,height,nationalityString,doB,imagePath);
+		
+		treeRBName.insert(p);
+		treeRBLastName.insert(p);
+		treeRBFullName.insert(p);
+		treeRBId.insert(p);
+		
+		showTree();
+		
+		
 	}
 	
 }

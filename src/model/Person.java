@@ -20,15 +20,15 @@ public class Person {
 	
 	private Gender gender;
 
-	@SuppressWarnings("unused")
+	
 	private int age;
 	
-	@SuppressWarnings("unused")
+	
 	private int height;
 
 	private Nationality country;
 
-	@SuppressWarnings("unused")
+
 	private LocalDate birthDayDate;
 	
 	private String imagePath;
@@ -46,6 +46,8 @@ public class Person {
 		this.country = country;
 		this.birthDayDate = birthDayDate;
 		this.imagePath=imagePath;
+		this.country=country;
+		this.gender=gender;
 		
 	}
 
@@ -126,7 +128,7 @@ public class Person {
 	@Override
 	public String toString() {
 		
-		return ("Name: "+name+"\n"+"Last Name: "+lastName+"\n"+"Id: "+id);
+		return ("Name: "+name+"\n"+"Last Name: "+lastName+"\n"+"Id: "+id+"\n"+"FullName: "+fullName+"\n"+"dateBirth: "+birthDayDate+"\n"+"Age: "+age+"\n"+"Gender: "+gender+"\n"+"Nationality: "+country+"\n"+"Image"+imagePath+"\n"+"Height"+height);
 	}
 	
 	

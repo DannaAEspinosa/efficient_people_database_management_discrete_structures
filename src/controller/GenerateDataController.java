@@ -88,9 +88,8 @@ public class GenerateDataController implements Initializable {
 
 		progressBar.setStyle("-fx-accent: #71d1d3;");
 
-		numberDataGenerate.setText("0"); // Prueba
-
-	}
+		numberDataGenerate.setText("0"); 
+		}
 
 	// Metodo para incrementar la barra
 	public void increaseProgress(int numDates) {

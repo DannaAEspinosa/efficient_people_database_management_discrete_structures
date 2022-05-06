@@ -68,8 +68,8 @@
                </font>
             </Button>
             <Circle fill="#71d1d3" layoutX="459.0" layoutY="125.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-            <DatePicker fx:id="dateOfBirthDP" layoutX="60.0" layoutY="168.0" onInputMethodTextChanged="#generateAgePerson" prefHeight="31.0" prefWidth="230.0" />
-            <Label fx:id="ageLb" layoutX="296.0" layoutY="215.0" prefHeight="22.0" prefWidth="37.0" textFill="#003e6f">
+            <DatePicker fx:id="dateOfBirthDP" layoutX="60.0" layoutY="168.0" prefHeight="31.0" prefWidth="230.0" />
+            <Label fx:id="ageLb" layoutX="331.0" layoutY="173.0" prefHeight="22.0" prefWidth="37.0" textFill="#003e6f">
                <font>
                   <Font name="Calibri Bold" size="18.0" />
                </font>
@@ -81,6 +81,8 @@
                </font>
             </Label>
             <Separator layoutX="52.0" layoutY="342.0" prefWidth="200.0" />
+            <Button fx:id="addBTN" layoutX="419.0" layoutY="340.0" mnemonicParsing="false" onAction="#addPerson" prefHeight="60.0" prefWidth="82.0" style="-fx-background-color: #71d1d3;" text="Add" />
+            <Button fx:id="validationAgeBTN" layoutX="296.0" layoutY="169.0" mnemonicParsing="false" onAction="#validationAge" prefHeight="4.0" prefWidth="6.0" style="-fx-background-color: #003e6f;" text="V" textFill="WHITE" />
          </children>
       </AnchorPane>
    </center>

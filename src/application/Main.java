@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import controller.GenerateDataController;
 import controller.InitialViewController;
@@ -12,6 +13,7 @@ import controller.searchByLastNameController;
 import controller.searchByNameController;
 import controller.updatePersonController;
 import controller.viewDataController;
+import enumerations.Gender;
 import enumerations.Nationality;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -48,7 +50,7 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
-
+		
 	}
 
 	public boolean toGenerateDate(int numDates) {
@@ -422,5 +424,9 @@ public class Main extends Application {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void addPerson(String name, String lastName, String fullName, int age,int height,String id, Nationality nationalityString, Gender gender,String imagePath,LocalDate doB) {
+		controller.addPerson(name,lastName,fullName,age,height,id, nationalityString,gender,imagePath,doB);
 	}
 }
