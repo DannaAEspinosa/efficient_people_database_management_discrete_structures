@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.charset.Charset;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Random;
@@ -32,7 +33,7 @@ public class Controller {
 
 
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({ "unchecked", "rawtypes", "deprecation" })
 	public Controller() {
 		
 		//To initialize trees
@@ -81,7 +82,7 @@ public class Controller {
 		double randomN = 0;
 		
 		for(int i = 0;i<numDates;i++) {
-			//System.out.println("i: "+(i+1));
+			
 			
 			name = randomValueCSV(relativePathNames);
 			
@@ -115,7 +116,7 @@ public class Controller {
 			
 			p = new Person(id,name,lastName,fullName,gender,age,height,country,birthDay,imagePath);
 			
-			//System.out.println(p.toString());			
+			
 			
 			
 			//To serialize
@@ -437,7 +438,37 @@ public class Controller {
 		
 		showTree();
 		
+	}
+	
+	public ArrayList<Person> getListOfPeople(String input){
+		ArrayList<Person> temp = treeRBName.searchByName(input);
+		return temp;
+	}
+	
+	public void setNullList() {
+		treeRBName.setNewInstance();
+	}
+	
+	public boolean thereArePeopleRegistered() {
+		
+		if(treeRBName.getRoot() == treeRBName.getSonNull() ) {
+			return false;
+		}
+		else if(treeRBLastName.getRoot() == treeRBLastName.getSonNull()) {
+			return false;
+		}
+		else if(treeRBFullName.getRoot() == treeRBFullName.getSonNull()) {
+			return false;
+		}
+		else if(treeRBId.getRoot() == treeRBId.getSonNull()) {
+			return false;
+		}
+		else {
+			return true;
+		}
+		
 		
 	}
+	
 	
 }
