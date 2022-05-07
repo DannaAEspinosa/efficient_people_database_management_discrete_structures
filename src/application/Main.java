@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+
+import controller.SearchByNameViewController;
 import controller.GenerateDataController;
 import controller.InitialViewController;
 import controller.MenuBarController;
-import controller.SearchByNameViewController;
 import controller.addPersonController;
 import controller.searchByCodeController;
 import controller.searchByFullNameController;
@@ -94,6 +95,7 @@ public class Main extends Application {
 			generateData = (BorderPane) stage.getScene().getRoot();
 
 			generateData.setCenter(root_2);
+			currentStage.setResizable(false);
 			// Icon y titulo de la ventana
 			currentStage.getIcons().add(new Image("/img/portrait-free-icon-font.png"));
 			currentStage.setTitle("Base Data S.A | Generate Data");
@@ -137,6 +139,7 @@ public class Main extends Application {
 			addPerson = (BorderPane) stage.getScene().getRoot();
 
 			addPerson.setCenter(root_2);
+			currentStage.setResizable(false);
 			// Icon y titulo de la ventana
 			currentStage.getIcons().add(new Image("/img/user-add-free-icon-font.png"));
 			currentStage.setTitle("Base Data S.A | Add Person");
@@ -177,6 +180,9 @@ public class Main extends Application {
 			BorderPane searchByName = (BorderPane) stage.getScene().getRoot();
 			
 			searchByName.setCenter(rootSBN);
+			currentStage.setResizable(false);
+			currentStage.getIcons().add(new Image("/img/search-free-icon-font.png"));
+			currentStage.setTitle("Base Data S.A | Search By Name");
 			
 			stage.show();
 		
@@ -213,6 +219,7 @@ public class Main extends Application {
 			searchByCode = (BorderPane) stage.getScene().getRoot();
 
 			searchByCode.setCenter(root_2);
+			currentStage.setResizable(false);
 
 			currentStage.getIcons().add(new Image("/img/search-free-icon-font.png"));
 			currentStage.setTitle("Base Data S.A | Search By Code");
@@ -253,6 +260,7 @@ public class Main extends Application {
 			searchByFullName = (BorderPane) stage.getScene().getRoot();
 
 			searchByFullName.setCenter(root_2);
+			currentStage.setResizable(false);
 
 			currentStage.getIcons().add(new Image("/img/search-free-icon-font.png"));
 			currentStage.setTitle("Base Data S.A | Search By Full Name");
@@ -292,6 +300,7 @@ public class Main extends Application {
 			searchByLastName = (BorderPane) stage.getScene().getRoot();
 
 			searchByLastName.setCenter(root_2);
+			currentStage.setResizable(false);
 
 			currentStage.getIcons().add(new Image("/img/search-free-icon-font.png"));
 			currentStage.setTitle("Base Data S.A | Search By Last Name");
@@ -337,6 +346,7 @@ public class Main extends Application {
 			// GenerateDataController controller2 = loader_2.getController();
 
 			controller2.setMain(this);
+			
 
 			initialView = (BorderPane) stage.getScene().getRoot();
 
@@ -348,6 +358,7 @@ public class Main extends Application {
 			root.setBackground(bGround);
 
 			initialView.setCenter(root_2);
+			currentStage.setResizable(false);
 			//
 			stage.show();
 
@@ -385,6 +396,7 @@ public class Main extends Application {
 			viewData = (BorderPane) stage.getScene().getRoot();
 
 			viewData.setCenter(root_2);
+			currentStage.setResizable(false);
 
 			currentStage.getIcons().add(new Image("/img/eye-free-icon-font.png"));
 			currentStage.setTitle("Base Data S.A | View Data");
@@ -423,6 +435,7 @@ public class Main extends Application {
 			updatePerson = (BorderPane) stage.getScene().getRoot();
 
 			updatePerson.setCenter(root_2);
+			currentStage.setResizable(false);
 
 			currentStage.getIcons().add(new Image("/img/rotate-right-free-icon-font.png"));
 			currentStage.setTitle("Base Data S.A | Update Data");
