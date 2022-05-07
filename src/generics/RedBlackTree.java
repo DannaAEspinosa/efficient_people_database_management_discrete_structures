@@ -1,16 +1,20 @@
 package generics;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 
+
 import enumerations.Color;
+import interfaces.HelpInSearch;
 
 
-public class RedBlackTree<T> {
+public class RedBlackTree<T extends HelpInSearch> {
 	
 	//Attributes
 	private RedBlackNode<T> root;
 	private RedBlackNode<T> sonNull;
 	private Comparator<T> comp;
+	private ArrayList<T> list;
 	
 	public RedBlackTree(Comparator<T> comp) {
 		sonNull = new RedBlackNode<T>();
@@ -19,6 +23,7 @@ public class RedBlackTree<T> {
 		sonNull.setRightSon(null);
 		root = sonNull;
 		this.comp = comp;
+		list = new ArrayList<T>();
 	}
 	
 	public void insert(T element) {
@@ -216,6 +221,144 @@ public class RedBlackTree<T> {
 		node.setFather(y);
 	}
 	
+	
+	
+	public ArrayList<T> searchByName(String input){
+	
+		searchByNameHelp(root,input);
+		
+		return list;
+		
+	}
+	
+	public ArrayList<T> getList(){
+		return list;
+	}
+	
+	public void searchByNameHelp(RedBlackNode<T> current,String input){
+		if(current == sonNull) {
+			return;
+		}
+		else if(areSameCharacters(input,current.getValue().getNameI())==true) {
+			
+			if(list.size() > 100) {
+				return;
+			}
+			else {
+				
+				list.add(current.getValue());
+				
+				
+				//If we find a node with the same characters values of the input, we have to look to the right
+				
+				if(current.getRightSon() != sonNull) {
+					if(verifyNextCharacterIsGreater(input,current.getRightSon().getValue().getNameI()) == true) {
+						
+						if(current.getLeftSon() != sonNull) {
+							if(verifyNextCharacterIsGreater(input,current.getLeftSon().getValue().getNameI()) == false){ 
+								searchByNameHelp(current.getLeftSon(),input);
+							}
+							else {
+								current = sonNull;
+							}
+						}
+						
+						
+					}
+					else {
+						searchByNameHelp(current.getRightSon(),input);
+					}
+				}
+				
+				
+			}
+		}
+		else {
+			
+			
+			//If the name in the current node is not greater, we have to search in the right son
+			if(currentIsGreater(input,current.getValue().getNameI())==false) {
+				searchByNameHelp(current.getRightSon(),input);
+			}
+			else {
+				
+				if(currentIsMinor(input,current.getValue().getLastNameI())==true) {
+					searchByNameHelp(current.getRightSon(),input);
+				}
+				searchByNameHelp(current.getLeftSon(),input);
+			}
+		}
+	}
+	
+	public boolean areSameCharacters(String input,String nodeName) {
+		int inputLength = input.length();
+		
+		
+		for(int i = 0; i<inputLength;i++) {
+			if(i<nodeName.length()) {
+				if(input.charAt(i) != nodeName.charAt(i)) {
+					return false;
+				}
+			}
+			
+		}
+		
+		return true;
+	}
+	
+	public boolean verifyNextCharacterIsGreater(String input, String nextInput) {
+		
+		char v1 = input.charAt(0);
+		char v2 = nextInput.charAt(0);
+		
+		if(v2>v1) {
+			return true;
+		}
+		
+		return false;
+		
+	}
+	
+	public boolean currentIsMinor(String input,String nodeInput) {
+		int inputLength = input.length();
+		
+		for(int i = 0;i<inputLength;i++) {
+			if(i<nodeInput.length()) {
+				
+				if(input.charAt(i) > nodeInput.charAt(i)) {
+					return true;
+				}
+			}
+			
+		}
+		
+		return false;
+	}
+	
+	public boolean currentIsGreater(String input,String nodeInput) {
+		
+		int inputLength = input.length();
+		
+		if(input.length()>nodeInput.length()) {
+			return false;
+		}
+		
+		
+		for(int i = 0; i<inputLength;i++) {
+			
+			if(i<nodeInput.length()) {
+				
+				if(input.charAt(i) < nodeInput.charAt(i)) {
+					return true;
+				}
+			}
+			
+			
+		}
+		
+		return false;
+	}
+	
 	public void toShowHelp() {
 		toShow(root,"",true);
 	}
@@ -239,6 +382,26 @@ public class RedBlackTree<T> {
 				
 			}
 	
-		}
+	}
+	
+	//
+	// GETTERS AND SETTERS
+	//
+	public void setNewInstance() {
+		list = new ArrayList<T>();
+	}
+
+	public RedBlackNode<T> getRoot() {
+		return root;
+	}
+
+	public void setRoot(RedBlackNode<T> root) {
+		this.root = root;
+	}
+	public RedBlackNode<T> getSonNull() {
+		return sonNull;
+	}
+	
+	
 	
 }

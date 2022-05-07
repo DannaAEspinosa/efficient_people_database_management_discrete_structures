@@ -4,9 +4,10 @@ import java.time.LocalDate;
 
 import enumerations.Gender;
 import enumerations.Nationality;
-import javafx.scene.image.Image;
+import interfaces.HelpInSearch;
 
-public class Person {
+
+public class Person implements HelpInSearch{
 	
 	//Attributes
 	private String id;
@@ -107,9 +108,42 @@ public class Person {
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
+	
+
+
+	public int getAge() {
+		return age;
+	}
 
 
 
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+
+
+	public int getHeight() {
+		return height;
+	}
+
+
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+
+
+	public LocalDate getBirthDayDate() {
+		return birthDayDate;
+	}
+
+
+
+	public void setBirthDayDate(LocalDate birthDayDate) {
+		this.birthDayDate = birthDayDate;
+	}
 
 
 
@@ -128,7 +162,40 @@ public class Person {
 	@Override
 	public String toString() {
 		
-		return ("Name: "+name+"\n"+"Last Name: "+lastName+"\n"+"Id: "+id+"\n"+"FullName: "+fullName+"\n"+"dateBirth: "+birthDayDate+"\n"+"Age: "+age+"\n"+"Gender: "+gender+"\n"+"Nationality: "+country+"\n"+"Image"+imagePath+"\n"+"Height"+height);
+		return fullName;
+		//return ("Name: "+name+"\n"+"Last Name: "+lastName+"\n"+"Id: "+id+"\n"+"FullName: "+fullName+"\n"+"dateBirth: "+birthDayDate+"\n"+"Age: "+age+"\n"+"Gender: "+gender+"\n"+"Nationality: "+country+"\n"+"Image"+imagePath+"\n"+"Height"+height);
+	}
+
+
+
+	@Override
+	public String getNameI() {
+		// TODO Auto-generated method stub
+		return name;
+	}
+
+
+
+	@Override
+	public String getLastNameI() {
+		// TODO Auto-generated method stub
+		return lastName;
+	}
+
+
+
+	@Override
+	public String fullNameI() {
+		// TODO Auto-generated method stub
+		return fullName;
+	}
+
+
+
+	@Override
+	public String getIdI() {
+		// TODO Auto-generated method stub
+		return id;
 	}
 	
 	

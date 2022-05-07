@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import controller.GenerateDataController;
 import controller.InitialViewController;
@@ -16,6 +17,8 @@ import controller.viewDataController;
 import enumerations.Gender;
 import enumerations.Nationality;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -27,6 +30,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.Controller;
+import model.Person;
 
 public class Main extends Application {
 
@@ -53,13 +57,9 @@ public class Main extends Application {
 		
 	}
 
-	public boolean toGenerateDate(int numDates) {
-		long startTime = System.currentTimeMillis();
+	public void toGenerateDate(int numDates) {
 		controller.toCreatePerson(numDates);
-		long endTime = System.currentTimeMillis() - startTime;
-		System.out.println("end: " + endTime);
-		// System.out.println("Guardo");
-		return true;
+		//controller.showTree();
 	}
 
 	// Abre interfaz generateData
@@ -224,6 +224,7 @@ public class Main extends Application {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void searchByFullName() {
 		try {
 
@@ -246,7 +247,6 @@ public class Main extends Application {
 
 			BorderPane root_2 = (BorderPane) loader_2.load();
 
-			@SuppressWarnings("rawtypes")
 			searchByFullNameController controller2 = loader_2.getController();
 
 			controller2.setMain(this);
@@ -434,11 +434,30 @@ public class Main extends Application {
 		}
 	}
 	
-	public void exit() {
-		currentStage.close();
-	}
 	
 	public void addPerson(String name, String lastName, String fullName, int age,int height,String id, Nationality nationalityString, Gender gender,String imagePath,LocalDate doB) {
 		controller.addPerson(name,lastName,fullName,age,height,id, nationalityString,gender,imagePath,doB);
+	}
+	
+	//type = 1 --> search by name
+	
+	
+	public ObservableList<Person> refreshData(String input) {
+		
+		controller.setNullList();
+		
+		ObservableList<Person> aux =  FXCollections.observableArrayList();;
+		
+		ArrayList<Person> temp = controller.getListOfPeople(input);
+		
+		for(int i = 0;i<temp.size();i++) {
+			aux.add(temp.get(i));
+		}
+		
+		return aux;
+	}
+	
+	public boolean thereArePeopleInSystem() {
+		return controller.thereArePeopleRegistered();
 	}
 }
