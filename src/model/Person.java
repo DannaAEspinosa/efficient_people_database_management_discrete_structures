@@ -10,7 +10,7 @@ import interfaces.HelpInSearch;
 public class Person implements HelpInSearch{
 	
 	//Attributes
-	private String id;
+	public String id;
 
 	private String name;
 
@@ -31,6 +31,7 @@ public class Person implements HelpInSearch{
 
 
 	private LocalDate birthDayDate;
+	
 	
 	private String imagePath;
 

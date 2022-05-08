@@ -70,7 +70,7 @@ public class searchByNameController<T>implements Initializable {
 
 	@FXML
 	void viewData(ActionEvent event) {
-		main.viewData();
+		//main.viewData();
 	}
 
 	public void imageIcons() {

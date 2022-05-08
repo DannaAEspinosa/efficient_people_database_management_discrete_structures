@@ -38,6 +38,30 @@ public class Main extends Application {
 	private Stage currentStage;
 
 	private Controller controller;
+	
+	//Attributes for send
+	
+		private String name;
+		
+		private String lastName;
+		
+		private String fullName;
+		
+		private String id;
+		
+		private String gender;
+		
+		private String nationality;
+		
+		private String age;
+		
+		private String height;
+		
+		private String birthDay;
+		
+		private String urlImage;
+
+
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -181,6 +205,7 @@ public class Main extends Application {
 			
 			searchByName.setCenter(rootSBN);
 			currentStage.setResizable(false);
+			
 			currentStage.getIcons().add(new Image("/img/search-free-icon-font.png"));
 			currentStage.setTitle("Base Data S.A | Search By Name");
 			
@@ -346,7 +371,7 @@ public class Main extends Application {
 			// GenerateDataController controller2 = loader_2.getController();
 
 			controller2.setMain(this);
-			
+			currentStage.setResizable(false);
 
 			initialView = (BorderPane) stage.getScene().getRoot();
 
@@ -369,7 +394,7 @@ public class Main extends Application {
 
 	}
 
-	public void viewData() {
+	public void viewData(Person personClicked) {
 		try {
 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
@@ -388,7 +413,17 @@ public class Main extends Application {
 
 			BorderPane viewData;
 			FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/viewDataWindow.fxml"));
-
+			name=personClicked.getName();
+			lastName=personClicked.getLastName();
+			fullName=personClicked.getFullName();
+			id=personClicked.getId();
+			gender=String.valueOf(personClicked.getGender());
+			nationality=String.valueOf(personClicked.getCountry());
+			age=String.valueOf(personClicked.getAge());
+			height=String.valueOf(personClicked.getHeight());
+			birthDay=String.valueOf(personClicked.getBirthDayDate());
+			urlImage=personClicked.getImagePath();
+			loader_2.setController(new viewDataController(name,lastName,fullName,id,gender,nationality,age, height,birthDay,urlImage));
 			BorderPane root_2 = (BorderPane) loader_2.load();
 
 			viewDataController controller2 = loader_2.getController();
@@ -413,6 +448,7 @@ public class Main extends Application {
 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
 			BorderPane root;
+			loader.setController(new updatePersonController());
 
 			root = (BorderPane) loader.load();
 

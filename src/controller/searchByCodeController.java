@@ -104,7 +104,7 @@ public class searchByCodeController implements Initializable {
 
 	@FXML
 	void viewData(ActionEvent event) {
-		main.viewData();
+		//main.viewData();
 	}
 
 	public void imageIcons() {

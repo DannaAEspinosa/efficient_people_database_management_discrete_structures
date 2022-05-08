@@ -12,12 +12,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearchByNameViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearchByNameViewController">
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="270.0" style="-fx-background-color: #71d1d3;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="45.0" layoutY="365.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Edit" />
-            <Button layoutX="45.0" layoutY="431.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Delete" />
+            <Button fx:id="editBTN" layoutX="45.0" layoutY="365.0" mnemonicParsing="false" onAction="#showUpdateView" prefHeight="40.0" prefWidth="180.0" text="Edit" />
+            <Button fx:id="deleteBTN" layoutX="45.0" layoutY="431.0" mnemonicParsing="false" onAction="#deletePerson" prefHeight="40.0" prefWidth="180.0" text="Delete" />
             <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="60.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../bin/img/superpoblacion.png" />
@@ -28,7 +28,7 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Text>
-            <Button layoutX="45.0" layoutY="301.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Details" />
+            <Button fx:id="detailsBTN" layoutX="45.0" layoutY="301.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="40.0" prefWidth="180.0" text="Details" />
          </children>
       </AnchorPane>
    </left>

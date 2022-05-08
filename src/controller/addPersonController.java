@@ -188,9 +188,9 @@ public class addPersonController implements Initializable {
 			return Nationality.PARAGUAY;
 		} else if (nationalityS.equals("NICARAGUA")) {
 			return Nationality.NICARAGUA;
-		} else if (nationalityS.equals("EL_SALVADOR")) {
+		} else if (nationalityS.equals("EL SALVADOR")) {
 			return Nationality.EL_SALVADOR;
-		} else if (nationalityS.equals("COSTA_RICA")) {
+		} else if (nationalityS.equals("COSTA RICA")) {
 			return Nationality.COSTA_RICA;
 		} else if (nationalityS.equals("PANAMA")) {
 			return Nationality.PANAMA;
@@ -198,9 +198,9 @@ public class addPersonController implements Initializable {
 			return Nationality.URUGUAY;
 		} else if (nationalityS.equals("JAMAICA")) {
 			return Nationality.JAMAICA;
-		} else if (nationalityS.equals("PUERTO_RICO")) {
+		} else if (nationalityS.equals("PUERTO RICO")) {
 			return Nationality.PUERTO_RICO;
-		} else if (nationalityS.equals("TRINIDAD_AND_TOBAGO")) {
+		} else if (nationalityS.equals("TRINIDAD AND TOBAGO")) {
 			return Nationality.TRINIDAD_AND_TOBAGO;
 		} else if (nationalityS.equals("GUYANA")) {
 			return Nationality.GUYANA;
@@ -212,17 +212,17 @@ public class addPersonController implements Initializable {
 			return Nationality.BAHAMAS;
 		} else if (nationalityS.equals("BARBADOS")) {
 			return Nationality.BARBADOS;
-		} else if (nationalityS.equals("SAINT_LUCIA")) {
+		} else if (nationalityS.equals("SAINT LUCIA")) {
 			return Nationality.SAINT_LUCIA;
 		} else if (nationalityS.equals("GRENADA")) {
 			return Nationality.GRENADA;
-		} else if (nationalityS.equals("SAINT_VINCENT_AND_THE_GRENADINES")) {
+		} else if (nationalityS.equals("SAINT VINCENT AND THE GRENADINES")) {
 			return Nationality.SAINT_VINCENT_AND_THE_GRENADINES;
-		} else if (nationalityS.equals("ANTIGUA_AND_BARBUDA")) {
+		} else if (nationalityS.equals("ANTIGUA AND BARBUDA")) {
 			return Nationality.ANTIGUA_AND_BARBUDA;
 		} else if (nationalityS.equals("DOMINICA")) {
 			return Nationality.DOMINICA;
-		} else if (nationalityS.equals("SAINT_KITTS_AND_NEVIS")) {
+		} else if (nationalityS.equals("SAINT KITTS AND NEVIS")) {
 			return Nationality.SAINT_KITTS_AND_NEVIS;
 		}
 		return null;
