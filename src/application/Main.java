@@ -9,10 +9,10 @@ import controller.SearchByNameViewController;
 import controller.GenerateDataController;
 import controller.InitialViewController;
 import controller.MenuBarController;
+import controller.SearchByLastNameViewController;
 import controller.addPersonController;
 import controller.searchByCodeController;
 import controller.searchByFullNameController;
-import controller.searchByLastNameController;
 import controller.updatePersonController;
 import controller.viewDataController;
 import enumerations.Gender;
@@ -299,6 +299,7 @@ public class Main extends Application {
 
 	public void searchByLastName() {
 		try {
+			currentStage.close();
 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
 			BorderPane root;
@@ -307,7 +308,7 @@ public class Main extends Application {
 
 			MenuBarController controller = loader.getController();
 			controller.setMain(this);
-			Scene scene = new Scene(root, 791, 556);
+			Scene scene = new Scene(root, 900, 525);
 			Stage stage = new Stage();
 			stage.setScene(scene);
 
@@ -315,22 +316,22 @@ public class Main extends Application {
 			currentStage.close();
 
 			BorderPane searchByLastName;
-			FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/searchByLastNameWindow.fxml"));
+			FXMLLoader loaderSBLN = new FXMLLoader(getClass().getResource("../ui/searchByLastName.fxml"));
 
-			BorderPane root_2 = (BorderPane) loader_2.load();
+			BorderPane rootSBLN = (BorderPane) loaderSBLN .load();
 
-			@SuppressWarnings("rawtypes")
-			searchByLastNameController controller2 = loader_2.getController();
-			controller2.setMain(this);
+			SearchByLastNameViewController controllerSBLN = loaderSBLN .getController();
+			controllerSBLN.setMain(this);
 			searchByLastName = (BorderPane) stage.getScene().getRoot();
 
-			searchByLastName.setCenter(root_2);
-			currentStage.setResizable(false);
+			searchByLastName.setCenter(rootSBLN);
 
 			currentStage.getIcons().add(new Image("/img/search-free-icon-font.png"));
 			currentStage.setTitle("Base Data S.A | Search By Last Name");
 
 			stage.show();
+
+		
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -423,6 +424,12 @@ public class Main extends Application {
 			height=String.valueOf(personClicked.getHeight());
 			birthDay=String.valueOf(personClicked.getBirthDayDate());
 			urlImage=personClicked.getImagePath();
+			
+			if(urlImage.equals("")) {
+				urlImage = "/photos/AdultaFemenino3.jpg";
+			}
+
+			
 			loader_2.setController(new viewDataController(name,lastName,fullName,id,gender,nationality,age, height,birthDay,urlImage));
 			BorderPane root_2 = (BorderPane) loader_2.load();
 
@@ -491,14 +498,14 @@ public class Main extends Application {
 	//type = 1 --> search by name
 	
 	
-	public ObservableList<Person> refreshData(String input) {
+	public ObservableList<Person> refreshData(String input, int id) {
 		
 		controller.setNullList();
 		
 		ObservableList<Person> aux =  FXCollections.observableArrayList();;
 		
-		ArrayList<Person> temp = controller.getListOfPeople(input);
-		
+		ArrayList<Person> temp = controller.getListOfPeople(input,id);
+
 		for(int i = 0;i<temp.size();i++) {
 			aux.add(temp.get(i));
 		}

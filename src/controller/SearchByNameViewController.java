@@ -38,25 +38,9 @@ public class SearchByNameViewController implements Initializable {
 	
 	//Attributes for send
 	
-	private String name;
+	@SuppressWarnings("unused")
+	private String name,lastName,fullName,id,gender,nationality,age,height,birthDay,urlImage;
 	
-	private String lastName;
-	
-	private String fullName;
-	
-	private String id;
-	
-	private String gender;
-	
-	private String nationality;
-	
-	private String age;
-	
-	private String height;
-	
-	private String birthDay;
-	
-	private String urlImage;
 
 	@FXML
 	private Button editBTN;
@@ -133,7 +117,7 @@ public class SearchByNameViewController implements Initializable {
 
 			if (main.thereArePeopleInSystem() == true) {
 				String input = nameTextField.getText();
-				ObservableList<Person> aux = main.refreshData(input);
+				ObservableList<Person> aux = main.refreshData(input.toUpperCase(),0);
 
 				if (aux.size() == 0) {
 					tableData.setItems(aux);
