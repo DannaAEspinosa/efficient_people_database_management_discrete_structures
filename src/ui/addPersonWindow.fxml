@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.addPersonController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPersonController">
    <center>
       <AnchorPane prefHeight="391.0" prefWidth="518.0" BorderPane.alignment="CENTER">
          <children>
@@ -43,9 +43,9 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="namePersonTF" layoutX="58.0" layoutY="43.0" prefHeight="31.0" prefWidth="215.0" promptText="insert name" />
-            <TextField fx:id="lastNamePersonTF" layoutX="59.0" layoutY="103.0" prefHeight="31.0" prefWidth="217.0" promptText="insert last name" />
-            <TextField fx:id="heightPersonTF" layoutX="58.0" layoutY="227.0" prefHeight="31.0" prefWidth="224.0" promptText="insert  height" />
+            <TextField fx:id="namePersonTF" layoutX="58.0" layoutY="43.0" prefHeight="31.0" prefWidth="215.0" promptText="Insert name" />
+            <TextField fx:id="lastNamePersonTF" layoutX="59.0" layoutY="103.0" prefHeight="31.0" prefWidth="217.0" promptText="Insert last name" />
+            <TextField fx:id="heightPersonTF" layoutX="58.0" layoutY="227.0" prefHeight="31.0" prefWidth="224.0" promptText="Insert  height" />
             <ComboBox fx:id="nationalityPersonCB" layoutX="57.0" layoutY="304.0" onAction="#chooseNationality" prefHeight="31.0" prefWidth="235.0" promptText="choose the nationality" style="-fx-background-color: #71d1d3;" />
             <Label layoutX="356.0" layoutY="297.0" text="Code:" textFill="#003e6f">
                <font>

@@ -436,8 +436,6 @@ public class Controller {
 		treeRBFullName.insert(p);
 		treeRBId.insert(p);
 		
-		showTree();
-		
 	}
 	
 	public ArrayList<Person> getListOfPeople(String input, int id){
@@ -448,6 +446,12 @@ public class Controller {
 		else if(id == 1) {
 			temp = treeRBLastName.searchByLastName(input);
 		}
+		else if(id == 2) {
+			temp = treeRBFullName.searchByFullName(input);
+		}
+		else if(id == 3) {
+			temp = treeRBId.searchByCode(input);
+		}
 		
 		return temp;
 	}
@@ -455,6 +459,8 @@ public class Controller {
 	public void setNullList() {
 		treeRBName.setNewInstance();
 		treeRBLastName.setNewInstance();
+		treeRBFullName.setNewInstance();
+		treeRBId.setNewInstance();
 	}
 	
 	public boolean thereArePeopleRegistered() {

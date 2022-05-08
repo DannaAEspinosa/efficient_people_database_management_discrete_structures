@@ -8,10 +8,12 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -50,9 +52,26 @@ public class GenerateDataController implements Initializable {
 	@FXML
 	void generateData(ActionEvent event) {
 		//textfield
-		int numDates = Integer.parseInt(numberPeople.getText());
+		try {
+			
+			int numDates = Integer.parseInt(numberPeople.getText());
+			
+			
+			bttGenerate.setVisible(false);
 
-		 generatingData(numDates);
+			generatingData(numDates);
+			
+		}catch(NumberFormatException e) {
+			e.printStackTrace();
+			numberPeople.setText("");
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Error!!");
+			alert.setHeaderText("Invalid input format..");
+			alert.showAndWait();
+			
+		}
+		
+		
 
 	}
 
@@ -109,11 +128,31 @@ public class GenerateDataController implements Initializable {
 					//Operation de UI
 					numberDataGenerate.setText(String.valueOf(i));
 					increaseProgress(numDates);
-					
+				
 					
 				});
+					
 			}
+			
+			Platform.runLater(new Runnable(){
+
+				@Override
+				public void run() {
+					Alert alert = new Alert(AlertType.CONFIRMATION);
+					alert.setTitle("Successful process");
+					alert.setHeaderText("The people were registered in the system");
+					alert.showAndWait();
+					bttGenerate.setVisible(true);
+					
+				}
+				// do your GUI stuff here
+				});
+			
+		
 		}).start();
+		
+		
+	
 	}
 
 	/**
@@ -135,5 +174,13 @@ public class GenerateDataController implements Initializable {
 		}
 		return false;
 
+	}
+	
+	public void toShowMessage() {
+		System.out.println("Entro");
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Successful process");
+		alert.setHeaderText("The people have been created");
+		alert.showAndWait();
 	}
 }

@@ -8,6 +8,7 @@ import enumerations.Color;
 import interfaces.HelpInSearch;
 
 
+
 public class RedBlackTree<T extends HelpInSearch> {
 	
 	//Attributes
@@ -342,6 +343,109 @@ public class RedBlackTree<T extends HelpInSearch> {
 			}
 		}
 	}
+	public ArrayList<T> searchByFullName(String input) {
+		searchByFullNameHelp(root,input);
+		return list;
+	}
+	
+	public void searchByFullNameHelp(RedBlackNode<T> current,String input) {
+		if(current == sonNull) {
+			return;
+		}
+		else if(areSameCharacters(input,current.getValue().getfullNameI())==true) {
+			if(list.size() >100) {
+				return;
+			}
+			list.add(current.getValue());
+			
+			//If we find a node with the same characters values of the input, we have to look to the right
+			if(current.getRightSon() != sonNull) {
+				
+				if(verifyNextCharacterIsGreater(input,current.getRightSon().getValue().getfullNameI()) == true) {
+					
+					if(current.getLeftSon() != sonNull) {
+						if(verifyNextCharacterIsGreater(input,current.getLeftSon().getValue().getfullNameI()) == false){ 
+							searchByFullNameHelp(current.getLeftSon(),input);
+						}
+						else {
+							current = sonNull;
+						}
+					}
+					
+					
+				}
+				else {
+					searchByFullNameHelp(current.getRightSon(),input);
+				}
+			}
+			
+		}
+		else {
+			//If the name in the current node is not greater, we have to search in the right son
+			if(currentIsGreater(input,current.getValue().getfullNameI())==false) {
+				searchByFullNameHelp(current.getRightSon(),input);
+			}
+			else {
+				
+				if(currentIsMinor(input,current.getValue().getLastNameI())==true) {
+					searchByFullNameHelp(current.getRightSon(),input);
+				}
+				searchByFullNameHelp(current.getLeftSon(),input);
+			}
+		}
+	}
+	
+	public ArrayList<T> searchByCode(String input) {
+		searchByCodeHelp(root,input); 
+		return list;
+	}
+	
+	public void searchByCodeHelp(RedBlackNode<T> current,String input) {
+		if(current == sonNull) {
+			return;
+		}
+		else if(areSameCharacters(input,current.getValue().getIdI())==true) {
+			if(list.size() >100) {
+				return;
+			}
+			list.add(current.getValue());
+			
+			//If we find a node with the same characters values of the input, we have to look to the right
+			if(current.getRightSon() != sonNull) {
+				
+				if(verifyNextCharacterIsGreater(input,current.getRightSon().getValue().getIdI()) == true) {
+					
+					if(current.getLeftSon() != sonNull) {
+						if(verifyNextCharacterIsGreater(input,current.getLeftSon().getValue().getIdI()) == false){ 
+							searchByCodeHelp(current.getLeftSon(),input);
+						}
+						else {
+							current = sonNull;
+						}
+					}
+					
+					
+				}
+				else {
+					searchByCodeHelp(current.getRightSon(),input);
+				}
+			}
+			
+		}
+		else {
+			//If the name in the current node is not greater, we have to search in the right son
+			if(currentIsGreater(input,current.getValue().getIdI())==false) {
+				searchByCodeHelp(current.getRightSon(),input);
+			}
+			else {
+				
+				if(currentIsMinor(input,current.getValue().getIdI())==true) {
+					searchByCodeHelp(current.getRightSon(),input);
+				}
+				searchByCodeHelp(current.getLeftSon(),input);
+			}
+		}
+	}
 	
 	public boolean areSameCharacters(String input,String nodeName) {
 		int inputLength = input.length();
@@ -454,6 +558,10 @@ public class RedBlackTree<T extends HelpInSearch> {
 	public RedBlackNode<T> getSonNull() {
 		return sonNull;
 	}
+
+	
+
+	
 	
 	
 	

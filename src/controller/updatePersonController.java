@@ -48,17 +48,21 @@ public class updatePersonController implements Initializable{
 	}
 
 
+	@SuppressWarnings("unused")
 	private Main main;
+	
 	Calendar cal = new GregorianCalendar();
 
 	Controller controller = new Controller();
 
+	@SuppressWarnings("unused")
 	private String[] country = { "USA", "MEXICO", "CANADA", "GUATEMALA", "HAITI", "CUBA", "HONDURAS", "EL SALVADOR",
 			"COSTA RICA", "PANAMA", "JAMAICA", "PUERTO RICO", "TRINIDAD AND TOBAGO", "BELIZE", "BAHAMAS", "BARBADOS",
 			"SAINT LUCIA", "GRENADA", "SAINT VINCENT AND THE GRENADINES", "ANTIGUA AND BARBUDA", "DOMINICA", "BERMUDA",
 			"SAINT KITTS AND NEVIS", "ANGUILLA", "BRAZIL", "COLOMBIA", "ARGENTINA", "PERU", "VENEZUELA",
 			"CHILE", "ECUADOR", "BOLIVIA", "PARAGUAY", "URUGUAY", "GUYANA", "SURINAME", "NICARAGUA" };
 
+	@SuppressWarnings("unused")
 	private String[] gender = { "MAN", "WOMAN" };
 
 	
@@ -229,6 +233,7 @@ public class updatePersonController implements Initializable{
 				dayCurrent = cal.get(Calendar.DAY_OF_MONTH);
 		int month = dateOfBirthDP.getValue().getMonthValue();
 		int year = dateOfBirthDP.getValue().getYear();
+		@SuppressWarnings("unused")
 		int day = dateOfBirthDP.getValue().getDayOfMonth();
 
 		int monthB = Math.abs(month - monthCurrent);

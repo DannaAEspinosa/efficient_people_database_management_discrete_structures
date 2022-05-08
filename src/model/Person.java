@@ -186,7 +186,7 @@ public class Person implements HelpInSearch{
 
 
 	@Override
-	public String fullNameI() {
+	public String getfullNameI() {
 		// TODO Auto-generated method stub
 		return fullName;
 	}

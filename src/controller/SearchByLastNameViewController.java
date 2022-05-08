@@ -96,7 +96,7 @@ public class SearchByLastNameViewController implements Initializable{
 						tableData.setItems(aux);
 						Alert alert = new Alert(AlertType.CONFIRMATION);
 						alert.setTitle("Successful process");
-						alert.setHeaderText("Name not found in database");
+						alert.setHeaderText("Last Name not found in database");
 						alert.showAndWait();
 					}
 					else {
