@@ -6,13 +6,13 @@ import java.util.ArrayList;
 
 
 import controller.SearchByNameViewController;
+import controller.AddPersonController;
 import controller.GenerateDataController;
 import controller.InitialViewController;
 import controller.MenuBarController;
+import controller.SearchByCodeViewController;
+import controller.SearchByFullNameViewController;
 import controller.SearchByLastNameViewController;
-import controller.addPersonController;
-import controller.searchByCodeController;
-import controller.searchByFullNameController;
 import controller.updatePersonController;
 import controller.viewDataController;
 import enumerations.Gender;
@@ -101,7 +101,7 @@ public class Main extends Application {
 			MenuBarController controller = loader.getController();
 			controller.setMain(this);
 
-			Scene scene = new Scene(root, 791, 555);
+			Scene scene = new Scene(root, 791, 549);
 			Stage stage = new Stage();
 			stage.setScene(scene);
 
@@ -133,6 +133,8 @@ public class Main extends Application {
 	// Abre interfaz addPerson
 	public void addPerson() {
 		try {
+			
+			currentStage.close();
 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
 			BorderPane root;
@@ -144,7 +146,7 @@ public class Main extends Application {
 
 			controller.setMain(this);
 
-			Scene scene = new Scene(root, 791, 555);
+			Scene scene = new Scene(root,791,549);
 			Stage stage = new Stage();
 			stage.setScene(scene);
 
@@ -152,11 +154,11 @@ public class Main extends Application {
 			currentStage.close();
 
 			BorderPane addPerson;
-			FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/addPersonWindow.fxml"));
+			FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/AddPersonWindow.fxml"));
 
 			BorderPane root_2 = (BorderPane) loader_2.load();
 
-			addPersonController controller2 = loader_2.getController();
+			AddPersonController controller2 = loader_2.getController();
 
 			controller2.setMain(this);
 
@@ -219,6 +221,8 @@ public class Main extends Application {
 
 	public void searchByCode() {
 		try {
+			
+			currentStage.close();
 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
 			BorderPane root;
@@ -227,7 +231,7 @@ public class Main extends Application {
 
 			MenuBarController controller = loader.getController();
 			controller.setMain(this);
-			Scene scene = new Scene(root, 791, 556);
+			Scene scene = new Scene(root,900,525);
 			Stage stage = new Stage();
 			stage.setScene(scene);
 
@@ -235,15 +239,15 @@ public class Main extends Application {
 			currentStage.close();
 
 			BorderPane searchByCode;
-			FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/searchByCodeWindow.fxml"));
+			FXMLLoader loaderSBC = new FXMLLoader(getClass().getResource("../ui/searchByCode.fxml"));
 
-			BorderPane root_2 = (BorderPane) loader_2.load();
+			BorderPane rootSBC = (BorderPane) loaderSBC.load();
 
-			searchByCodeController controller2 = loader_2.getController();
+			SearchByCodeViewController controller2 = loaderSBC.getController();
 			controller2.setMain(this);
 			searchByCode = (BorderPane) stage.getScene().getRoot();
 
-			searchByCode.setCenter(root_2);
+			searchByCode.setCenter(rootSBC);
 			currentStage.setResizable(false);
 
 			currentStage.getIcons().add(new Image("/img/search-free-icon-font.png"));
@@ -256,9 +260,10 @@ public class Main extends Application {
 		}
 	}
 
-	@SuppressWarnings("rawtypes")
 	public void searchByFullName() {
 		try {
+			
+			currentStage.close();
 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
 			BorderPane root;
@@ -267,7 +272,7 @@ public class Main extends Application {
 
 			MenuBarController controller = loader.getController();
 			controller.setMain(this);
-			Scene scene = new Scene(root, 791, 556);
+			Scene scene = new Scene(root, 900,525);
 			Stage stage = new Stage();
 			stage.setScene(scene);
 
@@ -275,16 +280,16 @@ public class Main extends Application {
 			currentStage.close();
 
 			BorderPane searchByFullName;
-			FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/searchByFullNameWindow.fxml"));
+			FXMLLoader loaderSBFN = new FXMLLoader(getClass().getResource("../ui/searchByFullName.fxml"));
 
-			BorderPane root_2 = (BorderPane) loader_2.load();
+			BorderPane rootSBFN = (BorderPane) loaderSBFN.load();
 
-			searchByFullNameController controller2 = loader_2.getController();
+			SearchByFullNameViewController controller2 = loaderSBFN.getController();
 
 			controller2.setMain(this);
 			searchByFullName = (BorderPane) stage.getScene().getRoot();
 
-			searchByFullName.setCenter(root_2);
+			searchByFullName.setCenter(rootSBFN);
 			currentStage.setResizable(false);
 
 			currentStage.getIcons().add(new Image("/img/search-free-icon-font.png"));
@@ -452,6 +457,7 @@ public class Main extends Application {
 
 	public void updatePerson() {
 		try {
+			
 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
 			BorderPane root;
