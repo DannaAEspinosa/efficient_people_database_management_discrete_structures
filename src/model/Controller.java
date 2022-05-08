@@ -64,7 +64,7 @@ public class Controller {
 		String relativePathLastNames = ".\\data\\Apellidos.csv";
 		
 		//Attributes of the class person
-		String name,lastName,fullName,id,imagePath= "";
+		String name,lastName,fullName,id,imagePath,auxName= "";
 		
 		Gender gender = null;
 		
@@ -84,11 +84,13 @@ public class Controller {
 		for(int i = 0;i<numDates;i++) {
 			
 			
-			name = randomValueCSV(relativePathNames);
+			auxName = randomValueCSV(relativePathNames);
 			
-			while(name == null) {
-				name = randomValueCSV(relativePathNames);
+			while(auxName == null) {
+				auxName = randomValueCSV(relativePathNames);
 			}
+			
+			name = auxName.toUpperCase();
 			
 			lastName = randomValueCSV(relativePathLastNames);
 			
@@ -115,9 +117,7 @@ public class Controller {
 			imagePath=randomImage(randomN);
 			
 			p = new Person(id,name,lastName,fullName,gender,age,height,country,birthDay,imagePath);
-			
-			
-			
+		
 			
 			//To serialize
 			
@@ -440,13 +440,21 @@ public class Controller {
 		
 	}
 	
-	public ArrayList<Person> getListOfPeople(String input){
-		ArrayList<Person> temp = treeRBName.searchByName(input);
+	public ArrayList<Person> getListOfPeople(String input, int id){
+		ArrayList<Person> temp = new ArrayList<Person>();
+		if(id == 0) {
+			temp = treeRBName.searchByName(input);
+		}
+		else if(id == 1) {
+			temp = treeRBLastName.searchByLastName(input);
+		}
+		
 		return temp;
 	}
 	
 	public void setNullList() {
 		treeRBName.setNewInstance();
+		treeRBLastName.setNewInstance();
 	}
 	
 	public boolean thereArePeopleRegistered() {

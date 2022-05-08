@@ -282,10 +282,63 @@ public class RedBlackTree<T extends HelpInSearch> {
 			}
 			else {
 				
-				if(currentIsMinor(input,current.getValue().getLastNameI())==true) {
+				if(currentIsMinor(input,current.getValue().getNameI())==true) {
 					searchByNameHelp(current.getRightSon(),input);
 				}
 				searchByNameHelp(current.getLeftSon(),input);
+			}
+		}
+	}
+	
+	public ArrayList<T> searchByLastName(String input){
+		searchByLastNameHelp(root,input);
+		return list;
+		
+	}
+	
+	public void searchByLastNameHelp(RedBlackNode<T> current,String input) {
+		if(current == sonNull) {
+			return;
+		}
+		else if(areSameCharacters(input,current.getValue().getLastNameI())==true) {
+			if(list.size() >100) {
+				return;
+			}
+			list.add(current.getValue());
+			
+			//If we find a node with the same characters values of the input, we have to look to the right
+			if(current.getRightSon() != sonNull) {
+				
+				if(verifyNextCharacterIsGreater(input,current.getRightSon().getValue().getLastNameI()) == true) {
+					
+					if(current.getLeftSon() != sonNull) {
+						if(verifyNextCharacterIsGreater(input,current.getLeftSon().getValue().getLastNameI()) == false){ 
+							searchByLastNameHelp(current.getLeftSon(),input);
+						}
+						else {
+							current = sonNull;
+						}
+					}
+					
+					
+				}
+				else {
+					searchByNameHelp(current.getRightSon(),input);
+				}
+			}
+			
+		}
+		else {
+			//If the name in the current node is not greater, we have to search in the right son
+			if(currentIsGreater(input,current.getValue().getLastNameI())==false) {
+				searchByLastNameHelp(current.getRightSon(),input);
+			}
+			else {
+				
+				if(currentIsMinor(input,current.getValue().getLastNameI())==true) {
+					searchByLastNameHelp(current.getRightSon(),input);
+				}
+				searchByLastNameHelp(current.getLeftSon(),input);
 			}
 		}
 	}
