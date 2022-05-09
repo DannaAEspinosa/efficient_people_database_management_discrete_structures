@@ -26,9 +26,9 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Text>
-            <Button layoutX="52.0" layoutY="428.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Delete" />
-            <Button layoutX="52.0" layoutY="371.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" text="Edit" />
-            <Button fx:id="detailsBTN" layoutX="52.0" layoutY="315.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="40.0" prefWidth="180.0" text="Details" />
+            <Button layoutX="45.0" layoutY="429.0" mnemonicParsing="false" onAction="#deletePerson" prefHeight="40.0" prefWidth="180.0" text="Delete" />
+            <Button layoutX="45.0" layoutY="371.0" mnemonicParsing="false" onAction="#editPerson" prefHeight="40.0" prefWidth="180.0" text="Edit" />
+            <Button fx:id="detailsBTN" layoutX="45.0" layoutY="316.0" mnemonicParsing="false" onAction="#showDetails" prefHeight="40.0" prefWidth="180.0" text="Details" />
          </children>
       </AnchorPane>
    </left>

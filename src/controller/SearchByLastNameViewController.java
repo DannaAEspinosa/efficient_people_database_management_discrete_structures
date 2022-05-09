@@ -132,5 +132,25 @@ public class SearchByLastNameViewController implements Initializable{
 			main.viewData(personClicked);
 	    }
 		
+		@FXML
+		void editPerson(ActionEvent event) {
+			main.updatePerson(personClicked);
+		}
+		
+		 @FXML
+		 void deletePerson(ActionEvent event) {
+		    	main.toDeleteAPerson(personClicked);
+		    	Alert alert = new Alert(AlertType.CONFIRMATION);
+				alert.setTitle("Successful process");
+				alert.setHeaderText("The person was deleted...");
+				alert.showAndWait();
+				
+				String input = lastNameTextField.getText();
+				ObservableList<Person> aux = main.refreshData(input.toUpperCase(),0);
+				tableData.setItems(aux);
+		 }
+		
+		
+		
 		
 }

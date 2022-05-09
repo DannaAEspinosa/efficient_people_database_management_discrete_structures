@@ -124,8 +124,10 @@ public class Controller {
 			p = new Person(id, name, lastName, fullName, gender, age, height, country, birthDay, imagePath);
 
 			// To serialize
+			/*
 			addPerson(p);
 			saveJSON();
+			*/
 			
 
 			treeRBName.insert(p);
@@ -386,9 +388,11 @@ public class Controller {
 		treeRBLastName.insert(p);
 		treeRBFullName.insert(p);
 		treeRBId.insert(p);
-
+		
+		/*
 		loadJSON();
 		saveJSON();
+		*/
 
 	}
 
@@ -482,6 +486,17 @@ public class Controller {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void deleteAPerson(Person p) {
+		//Method in the trees
+		
+		treeRBName.delete(p);
+		treeRBLastName.delete(p);
+		treeRBFullName.delete(p);
+		treeRBId.delete(p);
+		
+		
 	}
 
 }
