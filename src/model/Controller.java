@@ -125,14 +125,15 @@ public class Controller {
 
 			// To serialize
 
-			//addPerson(p);
+			addPerson(p);
 
 			treeRBName.insert(p);
 			treeRBLastName.insert(p);
 			treeRBFullName.insert(p);
 			treeRBId.insert(p);
 
-			//saveJSON();
+			saveJSON();
+			
 			// personDataA.clear();
 		}
 
@@ -382,14 +383,19 @@ public class Controller {
 		Person p = null;
 		p = new Person(id, name, lastName, fullName, gender, age, height, nationalityString, doB, imagePath);
 		
-		//addPerson(p);
+			addPerson(p);
 
-		treeRBName.insert(p);
-		treeRBLastName.insert(p);
-		treeRBFullName.insert(p);
-		treeRBId.insert(p);
+			treeRBName.insert(p);
+			treeRBLastName.insert(p);
+			treeRBFullName.insert(p);
+			treeRBId.insert(p);
 
-		//saveJSON();
+			saveJSON();
+			
+			loadJSON();
+		
+		
+		
 		
 		//personDataA.clear();
 		
@@ -397,6 +403,28 @@ public class Controller {
 	
 
 	}
+	
+	//Busquedad binaria para saber si el usuario ya está 
+		public static int searchUser(String idUnique) {
+		    
+			int low=0;
+			int high=personDataA.size()-1;
+		    while (low <= high) {
+		    	int midPos = (low + high) / 2;
+			    String midUser = personDataA.get(midPos).getId();
+			    int compare = idUnique.compareToIgnoreCase(midUser);
+
+			    if (compare == 0) {
+			        return midPos;
+			    }
+			    if (compare < 0) {
+			        high = midPos - 1;
+			    } else {
+			        low = midPos + 1;
+			    }
+		    }
+		    return -1;
+		}
 
 	private static ArrayList<Person> personDataA = new ArrayList<>();
 

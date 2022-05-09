@@ -44,7 +44,7 @@ public class Main extends Application {
 
 		controller = new Controller();
 		
-		//controller.loadJSON();
+		controller.loadJSON();
 
 		try {
 			intialView();

@@ -123,7 +123,8 @@ public class AddPersonController implements Initializable {
 			alert.setTitle("Successful process");
 			alert.setHeaderText("The person was registered in the system");
 			alert.showAndWait();
-			main.addPerson();
+			//main.addPerson();
+			
 			
 		}catch(Exception e) {
 			Alert alert = new Alert(AlertType.ERROR);
