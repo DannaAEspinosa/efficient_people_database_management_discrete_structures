@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPersonController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPersonController">
    <center>
       <AnchorPane prefHeight="391.0" prefWidth="518.0" BorderPane.alignment="CENTER">
          <children>
@@ -37,7 +37,6 @@
                   <Font name="Calibri Bold" size="18.0" />
                </font>
             </Label>
-            <ImageView fx:id="imgPerson" fitHeight="135.0" fitWidth="129.0" layoutX="395.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="58.0" layoutY="271.0" text=" Nationality:" textFill="#003e6f">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -83,6 +82,7 @@
             <Separator layoutX="52.0" layoutY="342.0" prefWidth="200.0" />
             <Button fx:id="addBTN" layoutX="419.0" layoutY="340.0" mnemonicParsing="false" onAction="#addPerson" prefHeight="60.0" prefWidth="82.0" style="-fx-background-color: #71d1d3;" text="Add" />
             <Button fx:id="validationAgeBTN" layoutX="296.0" layoutY="169.0" mnemonicParsing="false" onAction="#validationAge" prefHeight="4.0" prefWidth="6.0" style="-fx-background-color: #003e6f;" text="V" textFill="WHITE" />
+            <Button fx:id="imgPerson" layoutX="393.0" layoutY="59.0" mnemonicParsing="false" prefHeight="129.0" prefWidth="136.0" />
          </children>
       </AnchorPane>
    </center>

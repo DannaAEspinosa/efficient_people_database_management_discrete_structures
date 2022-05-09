@@ -22,7 +22,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import model.Controller;
 
-
 public class AddPersonController implements Initializable {
 	private Main main;
 
@@ -33,13 +32,13 @@ public class AddPersonController implements Initializable {
 	private String[] country = { "USA", "MEXICO", "CANADA", "GUATEMALA", "HAITI", "CUBA", "HONDURAS", "EL SALVADOR",
 			"COSTA RICA", "PANAMA", "JAMAICA", "PUERTO RICO", "TRINIDAD AND TOBAGO", "BELIZE", "BAHAMAS", "BARBADOS",
 			"SAINT LUCIA", "GRENADA", "SAINT VINCENT AND THE GRENADINES", "ANTIGUA AND BARBUDA", "DOMINICA", "BERMUDA",
-			"SAINT KITTS AND NEVIS", "ANGUILLA", "BRAZIL", "COLOMBIA", "ARGENTINA", "PERU", "VENEZUELA",
-			"CHILE", "ECUADOR", "BOLIVIA", "PARAGUAY", "URUGUAY", "GUYANA", "SURINAME", "NICARAGUA" };
+			"SAINT KITTS AND NEVIS", "ANGUILLA", "BRAZIL", "COLOMBIA", "ARGENTINA", "PERU", "VENEZUELA", "CHILE",
+			"ECUADOR", "BOLIVIA", "PARAGUAY", "URUGUAY", "GUYANA", "SURINAME", "NICARAGUA" };
 
 	private String[] gender = { "MAN", "WOMAN" };
 
 	@FXML
-	private ImageView imgPerson;
+	private Button imgPerson;
 
 	@FXML
 	private TextField namePersonTF;
@@ -79,31 +78,23 @@ public class AddPersonController implements Initializable {
 
 	@FXML
 	void addPerson(ActionEvent event) {
-		
+
 		try {
 			// Nombre
 			String name = namePersonTF.getText();
-			
-			
+
 			// Apellido
 			String lastName = lastNamePersonTF.getText();
-			
-			
+
 			// Edad
 			int age = returnAge();
-			
-			
-			
-			
+
 			String fullName = name + " " + lastName;
 			double random = controller.generateRandomNumberForPercent();
 			String urlImge = controller.randomImage(random);
-			
-			
+
 			// Estatura
 			int height = Integer.parseInt(heightPersonTF.getText());
-			
-			
 
 			// Genero
 			Gender gender = chooseGenderC();
@@ -116,33 +107,24 @@ public class AddPersonController implements Initializable {
 			// Fecha
 
 			LocalDate doB = dateOfBirthDP.getValue();
-			
-			
-			main.addPerson(name.toUpperCase(), lastName.toUpperCase(), fullName.toUpperCase(), age, height, id, nationalityString, gender, urlImge, doB);
+
+			main.addPerson(name.toUpperCase(), lastName.toUpperCase(), fullName.toUpperCase(), age, height, id,
+					nationalityString, gender, urlImge, doB);
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("Successful process");
 			alert.setHeaderText("The person was registered in the system");
 			alert.showAndWait();
-			//main.addPerson();
-			
-			
-		}catch(Exception e) {
+			// main.addPerson();
+
+		} catch (Exception e) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error!!");
 			alert.setHeaderText("You must record complete information or invalid input format..");
 			alert.showAndWait();
-			
+
 			e.printStackTrace();
-			
+
 		}
-		
-		
-		
-		
-
-		
-
-		
 
 	}
 
@@ -150,8 +132,8 @@ public class AddPersonController implements Initializable {
 	void addPhoto(ActionEvent event) {
 		double random = controller.generateRandomNumberForPercent();
 		String urlImge = controller.randomImage(random);
-		Image imagePerson = new Image(urlImge);
-		imgPerson.setImage(imagePerson);
+		Image imagePerson = new Image(urlImge, 130, 150, false, true);
+		imgPerson.setGraphic(new ImageView(imagePerson));
 
 		changePhotoBTN.setDisable(true);
 
@@ -286,7 +268,7 @@ public class AddPersonController implements Initializable {
 
 	public int returnAge() {
 		int monthCurrent = cal.get(Calendar.MONTH), yearCurrent = cal.get(Calendar.YEAR),
-		dayCurrent = cal.get(Calendar.DAY_OF_MONTH);
+				dayCurrent = cal.get(Calendar.DAY_OF_MONTH);
 		int month = dateOfBirthDP.getValue().getMonthValue();
 		int year = dateOfBirthDP.getValue().getYear();
 		@SuppressWarnings("unused")
@@ -297,7 +279,6 @@ public class AddPersonController implements Initializable {
 		@SuppressWarnings("unused")
 		int dayB = dayCurrent;
 		int yearB = Math.abs(year - yearCurrent);
-
 
 		return yearB;
 

@@ -404,28 +404,6 @@ public class Controller {
 
 	}
 	
-	//Busquedad binaria para saber si el usuario ya está 
-		public static int searchUser(String idUnique) {
-		    
-			int low=0;
-			int high=personDataA.size()-1;
-		    while (low <= high) {
-		    	int midPos = (low + high) / 2;
-			    String midUser = personDataA.get(midPos).getId();
-			    int compare = idUnique.compareToIgnoreCase(midUser);
-
-			    if (compare == 0) {
-			        return midPos;
-			    }
-			    if (compare < 0) {
-			        high = midPos - 1;
-			    } else {
-			        low = midPos + 1;
-			    }
-		    }
-		    return -1;
-		}
-
 	private static ArrayList<Person> personDataA = new ArrayList<>();
 
 	public ArrayList<Person> getListOfPeople(String input, int id) {
