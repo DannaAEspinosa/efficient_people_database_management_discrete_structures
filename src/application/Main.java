@@ -432,11 +432,10 @@ public class Main extends Application {
 		}
 	}
 
-	public void updatePerson() {
+	public void updatePerson(Person personClicked) {
 		try {
 
-			currentStage.close();
-
+			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
 			BorderPane root;
 
@@ -444,34 +443,34 @@ public class Main extends Application {
 
 			MenuBarController controller = loader.getController();
 			controller.setMain(this);
-			Scene scene = new Scene(root, 900, 525);
+			Scene scene = new Scene(root, 791, 556);
 			Stage stage = new Stage();
 			stage.setScene(scene);
 
 			currentStage = stage;
 			currentStage.close();
 
-			BorderPane searchByLastName;
+			BorderPane updatePerson;
+			
+			FXMLLoader loaderUP = new FXMLLoader(getClass().getResource("../ui/UpdatePerson.fxml"));
 
-			FXMLLoader loaderSBLN = new FXMLLoader(getClass().getResource("../ui/UpdatePerson.fxml"));
+			loaderUP.setController(new UpdatePersonViewController(personClicked.getName(),
+					personClicked.getLastName(),personClicked.getId(),personClicked.getAge(),personClicked.getHeight(),personClicked.getBirthDayDate(),
+					personClicked.getCountry(), personClicked.getGender(),personClicked.getImagePath(),personClicked));
 
-			BorderPane rootSBLN = (BorderPane) loaderSBLN.load();
+			BorderPane root_2 = (BorderPane) loaderUP.load();
 
-			UpdatePersonViewController controllerSBLN = loaderSBLN.getController();
+			UpdatePersonViewController controller2 = loaderUP.getController();
+			controller2.setMain(this);
+			updatePerson = (BorderPane) stage.getScene().getRoot();
 
-			controllerSBLN.setMain(this);
-			searchByLastName = (BorderPane) stage.getScene().getRoot();
-
-			searchByLastName.setCenter(rootSBLN);
-
-			currentStage.getIcons().add(new Image("/img/search-free-icon-font.png"));
-			currentStage.setTitle("Base Data S.A | Search By Last Name");
-
-			stage.show();
+			updatePerson.setCenter(root_2);
+			currentStage.setResizable(false);
 
 			currentStage.getIcons().add(new Image("/img/rotate-right-free-icon-font.png"));
 			currentStage.setTitle("Base Data S.A | Update Data");
 
+			stage.show();
 			// stage.show();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -504,6 +503,10 @@ public class Main extends Application {
 
 	public boolean thereArePeopleInSystem() {
 		return controller.thereArePeopleRegistered();
+	}
+	
+	public void toDeleteAPerson(Person p) {
+		controller.deleteAPerson(p);
 	}
 
 }

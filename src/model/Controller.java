@@ -138,6 +138,17 @@ public class Controller {
 		}
 
 	}
+	
+	public void deleteAPerson(Person p) {
+		//Method in the trees
+
+		treeRBName.delete(p);
+		treeRBLastName.delete(p);
+		treeRBFullName.delete(p);
+		treeRBId.delete(p);
+
+
+	}
 
 	public String generateId() {
 
