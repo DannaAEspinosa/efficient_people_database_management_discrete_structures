@@ -124,15 +124,16 @@ public class Controller {
 			p = new Person(id, name, lastName, fullName, gender, age, height, country, birthDay, imagePath);
 
 			// To serialize
-			addPerson(p);
-			saveJSON();
-			
+
+			//addPerson(p);
 
 			treeRBName.insert(p);
 			treeRBLastName.insert(p);
 			treeRBFullName.insert(p);
 			treeRBId.insert(p);
 
+			//saveJSON();
+			// personDataA.clear();
 		}
 
 	}
@@ -380,17 +381,24 @@ public class Controller {
 
 		Person p = null;
 		p = new Person(id, name, lastName, fullName, gender, age, height, nationalityString, doB, imagePath);
-		addPerson(p);
+		
+		//addPerson(p);
 
 		treeRBName.insert(p);
 		treeRBLastName.insert(p);
 		treeRBFullName.insert(p);
 		treeRBId.insert(p);
 
-		loadJSON();
-		saveJSON();
+		//saveJSON();
+		
+		//personDataA.clear();
+		
+
+	
 
 	}
+
+	private static ArrayList<Person> personDataA = new ArrayList<>();
 
 	public ArrayList<Person> getListOfPeople(String input, int id) {
 		ArrayList<Person> temp = new ArrayList<Person>();
@@ -403,6 +411,7 @@ public class Controller {
 		} else if (id == 3) {
 			temp = treeRBId.searchByCode(input);
 		}
+		//6HYTR5
 
 		return temp;
 	}
@@ -432,8 +441,6 @@ public class Controller {
 
 	// Serilización
 
-	private static ArrayList<Person> personDataA = new ArrayList<>();
-
 	public void addPerson(Person person) {
 		personDataA.add(person);
 
@@ -455,10 +462,12 @@ public class Controller {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 
 	// deserealizar
 	public static void loadJSON() {
+
 		try {
 			FileInputStream fis = new FileInputStream(new File("personData.json"));
 			BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
@@ -482,6 +491,7 @@ public class Controller {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 
 }

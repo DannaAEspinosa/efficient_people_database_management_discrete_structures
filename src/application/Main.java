@@ -43,8 +43,8 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 
 		controller = new Controller();
-
-		controller.loadJSON();
+		
+		//controller.loadJSON();
 
 		try {
 			intialView();
@@ -111,7 +111,7 @@ public class Main extends Application {
 	public void addPerson() {
 		try {
 
-			currentStage.close();
+			//currentStage.close();
 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
 			BorderPane root;
@@ -128,7 +128,7 @@ public class Main extends Application {
 			stage.setScene(scene);
 
 			currentStage = stage;
-			currentStage.close();
+			//currentStage.close();
 
 			BorderPane addPerson;
 			FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/AddPersonWindow.fxml"));
@@ -156,7 +156,7 @@ public class Main extends Application {
 
 	public void newSearchByName() {
 		try {
-			controller.loadJSON();
+			
 			currentStage.close();
 			
 
@@ -280,7 +280,7 @@ public class Main extends Application {
 
 	public void searchByLastName() {
 		try {
-			controller.loadJSON();
+			
 			currentStage.close();
 			
 
@@ -492,7 +492,7 @@ public class Main extends Application {
 		controller.setNullList();
 
 		ObservableList<Person> aux = FXCollections.observableArrayList();
-		;
+		
 
 		ArrayList<Person> temp = controller.getListOfPeople(input, id);
 

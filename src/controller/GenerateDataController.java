@@ -80,7 +80,7 @@ public class GenerateDataController implements Initializable {
 	}
 	@FXML
 	void saveData(ActionEvent e) {
-	
+	main.intialView();
 	}
 	
 
@@ -168,26 +168,7 @@ public class GenerateDataController implements Initializable {
 	
 	}
 
-	/**
-	 * Condicional para parar la barra de progreso
-	 * 
-	 * @return boolean true si el numero de personas generadas es igual a las
-	 *         personas que el suuario digito(Si es igual, entonces aparece el boton
-	 *         save) false si es menor.
-	 */
-	public boolean conditionalPersons(int numPeople, int numDataGenerate) {
 
-		if ((numDataGenerate+1) == numPeople) {
-			//bttSave.setVisible(true);
-			return true;
-		} else if (numDataGenerate < numPeople) {
-			return false;
-		} else if (numDataGenerate > numPeople) {
-			return false;
-		}
-		return false;
-
-	}
 	
 	public void toShowMessage() {
 		System.out.println("Entro");
