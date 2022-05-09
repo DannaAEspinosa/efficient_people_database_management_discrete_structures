@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-
 import controller.SearchByNameViewController;
 import controller.UpdatePersonViewController;
 import controller.AddPersonController;
@@ -39,34 +38,30 @@ public class Main extends Application {
 	private Stage currentStage;
 
 	private Controller controller;
-	
 
 	@Override
 	public void start(Stage primaryStage) {
-		
-		
+
 		controller = new Controller();
-		
+
+		controller.loadJSON();
 
 		try {
 			intialView();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		currentStage.getIcons().add(new Image("/img/superpoblacion.png"));
-		currentStage.setTitle("Base Data S.A");
 
 	}
-	
 
 	public static void main(String[] args) {
 		launch(args);
-		
+
 	}
 
 	public void toGenerateDate(int numDates) {
 		controller.toCreatePerson(numDates);
-		//controller.showTree();
+		// controller.showTree();
 	}
 
 	// Abre interfaz generateData
@@ -115,7 +110,7 @@ public class Main extends Application {
 	// Abre interfaz addPerson
 	public void addPerson() {
 		try {
-			
+
 			currentStage.close();
 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
@@ -128,7 +123,7 @@ public class Main extends Application {
 
 			controller.setMain(this);
 
-			Scene scene = new Scene(root,791,549);
+			Scene scene = new Scene(root, 791, 549);
 			Stage stage = new Stage();
 			stage.setScene(scene);
 
@@ -158,52 +153,51 @@ public class Main extends Application {
 		}
 
 	}
-	
+
 	public void newSearchByName() {
 		try {
-			
+			controller.loadJSON();
 			currentStage.close();
-		
+			
+
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
 			BorderPane root;
-	
+
 			root = (BorderPane) loader.load();
-	
+
 			MenuBarController controller = loader.getController();
 			controller.setMain(this);
-			Scene scene = new Scene(root,900,525);
+			Scene scene = new Scene(root, 900, 525);
 			Stage stage = new Stage();
 			stage.setScene(scene);
-			
+
 			currentStage = stage;
 			currentStage.close();
-			
-			
+
 			FXMLLoader loaderSBN = new FXMLLoader(getClass().getResource("../ui/searchByName.fxml"));
-			BorderPane rootSBN = (BorderPane)loaderSBN.load();
-		
+			BorderPane rootSBN = (BorderPane) loaderSBN.load();
+
 			SearchByNameViewController controllerSBN = loaderSBN.getController();
 			controllerSBN.setMain(this);
-			
+
 			BorderPane searchByName = (BorderPane) stage.getScene().getRoot();
-			
+
 			searchByName.setCenter(rootSBN);
 			currentStage.setResizable(false);
-			
+
 			currentStage.getIcons().add(new Image("/img/search-free-icon-font.png"));
 			currentStage.setTitle("Base Data S.A | Search By Name");
-			
+
 			stage.show();
-		
-		
-		}catch(IOException e){
+
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
 	public void searchByCode() {
 		try {
-			
+
 			currentStage.close();
 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
@@ -213,7 +207,7 @@ public class Main extends Application {
 
 			MenuBarController controller = loader.getController();
 			controller.setMain(this);
-			Scene scene = new Scene(root,900,525);
+			Scene scene = new Scene(root, 900, 525);
 			Stage stage = new Stage();
 			stage.setScene(scene);
 
@@ -244,7 +238,7 @@ public class Main extends Application {
 
 	public void searchByFullName() {
 		try {
-			
+
 			currentStage.close();
 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
@@ -254,7 +248,7 @@ public class Main extends Application {
 
 			MenuBarController controller = loader.getController();
 			controller.setMain(this);
-			Scene scene = new Scene(root, 900,525);
+			Scene scene = new Scene(root, 900, 525);
 			Stage stage = new Stage();
 			stage.setScene(scene);
 
@@ -286,7 +280,9 @@ public class Main extends Application {
 
 	public void searchByLastName() {
 		try {
+			controller.loadJSON();
 			currentStage.close();
+			
 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
 			BorderPane root;
@@ -305,9 +301,9 @@ public class Main extends Application {
 			BorderPane searchByLastName;
 			FXMLLoader loaderSBLN = new FXMLLoader(getClass().getResource("../ui/searchByLastName.fxml"));
 
-			BorderPane rootSBLN = (BorderPane) loaderSBLN .load();
+			BorderPane rootSBLN = (BorderPane) loaderSBLN.load();
 
-			SearchByLastNameViewController controllerSBLN = loaderSBLN .getController();
+			SearchByLastNameViewController controllerSBLN = loaderSBLN.getController();
 			controllerSBLN.setMain(this);
 			searchByLastName = (BorderPane) stage.getScene().getRoot();
 
@@ -318,22 +314,20 @@ public class Main extends Application {
 
 			stage.show();
 
-		
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-
 	// Abre interfaz initialView
 	public void intialView() {
 		try {
-			
-			if(currentStage != null) {
+
+			if (currentStage != null) {
 				currentStage.close();
 			}
-			
+
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
 			BorderPane root;
 
@@ -362,6 +356,8 @@ public class Main extends Application {
 			currentStage.setResizable(false);
 
 			initialView = (BorderPane) stage.getScene().getRoot();
+			currentStage.getIcons().add(new Image("/img/superpoblacion.png"));
+			currentStage.setTitle("Base Data S.A");
 
 			//
 			Image img = new Image("/img/img_main_5.png");
@@ -401,23 +397,23 @@ public class Main extends Application {
 
 			BorderPane viewData;
 			FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/viewDataWindow.fxml"));
-			String name=personClicked.getName();
-			String lastName=personClicked.getLastName();
-			String fullName=personClicked.getFullName();
-			String id=personClicked.getId();
-			String gender=String.valueOf(personClicked.getGender());
-			String nationality=String.valueOf(personClicked.getCountry());
-			String age=String.valueOf(personClicked.getAge());
-			String height=String.valueOf(personClicked.getHeight());
-			String birthDay=String.valueOf(personClicked.getBirthDayDate());
-			String urlImage=personClicked.getImagePath();
-			
-			if(urlImage.equals("")) {
+			String name = personClicked.getName();
+			String lastName = personClicked.getLastName();
+			String fullName = personClicked.getFullName();
+			String id = personClicked.getId();
+			String gender = String.valueOf(personClicked.getGender());
+			String nationality = String.valueOf(personClicked.getCountry());
+			String age = String.valueOf(personClicked.getAge());
+			String height = String.valueOf(personClicked.getHeight());
+			String birthDay = String.valueOf(personClicked.getBirthDayDate());
+			String urlImage = personClicked.getImagePath();
+
+			if (urlImage.equals("")) {
 				urlImage = "/photos/AdultaFemenino3.jpg";
 			}
 
-			
-			loader_2.setController(new viewDataController(name,lastName,fullName,id,gender,nationality,age, height,birthDay,urlImage));
+			loader_2.setController(new viewDataController(name, lastName, fullName, id, gender, nationality, age,
+					height, birthDay, urlImage));
 			BorderPane root_2 = (BorderPane) loader_2.load();
 
 			viewDataController controller2 = loader_2.getController();
@@ -439,7 +435,7 @@ public class Main extends Application {
 
 	public void updatePerson() {
 		try {
-			
+
 			currentStage.close();
 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
@@ -457,13 +453,13 @@ public class Main extends Application {
 			currentStage.close();
 
 			BorderPane searchByLastName;
-			
+
 			FXMLLoader loaderSBLN = new FXMLLoader(getClass().getResource("../ui/UpdatePerson.fxml"));
 
-			BorderPane rootSBLN = (BorderPane) loaderSBLN .load();
+			BorderPane rootSBLN = (BorderPane) loaderSBLN.load();
 
-			UpdatePersonViewController controllerSBLN = loaderSBLN .getController();
-			
+			UpdatePersonViewController controllerSBLN = loaderSBLN.getController();
+
 			controllerSBLN.setMain(this);
 			searchByLastName = (BorderPane) stage.getScene().getRoot();
 
@@ -473,45 +469,42 @@ public class Main extends Application {
 			currentStage.setTitle("Base Data S.A | Search By Last Name");
 
 			stage.show();
-			
 
 			currentStage.getIcons().add(new Image("/img/rotate-right-free-icon-font.png"));
 			currentStage.setTitle("Base Data S.A | Update Data");
 
-			//stage.show();
+			// stage.show();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
-	
-	public void addPerson(String name, String lastName, String fullName, int age,int height,String id, Nationality nationalityString, Gender gender,String imagePath,LocalDate doB) {
-		controller.addPerson(name,lastName,fullName,age,height,id, nationalityString,gender,imagePath,doB);
-	}
-	
-	//type = 1 --> search by name
-	
-	
-	public ObservableList<Person> refreshData(String input, int id) {
-		
-		controller.setNullList();
-		
-		ObservableList<Person> aux =  FXCollections.observableArrayList();;
-		
-		ArrayList<Person> temp = controller.getListOfPeople(input,id);
 
-		for(int i = 0;i<temp.size();i++) {
+	public void addPerson(String name, String lastName, String fullName, int age, int height, String id,
+			Nationality nationalityString, Gender gender, String imagePath, LocalDate doB) {
+		controller.addPerson(name, lastName, fullName, age, height, id, nationalityString, gender, imagePath, doB);
+	}
+
+	// type = 1 --> search by name
+
+	public ObservableList<Person> refreshData(String input, int id) {
+
+		controller.setNullList();
+
+		ObservableList<Person> aux = FXCollections.observableArrayList();
+		;
+
+		ArrayList<Person> temp = controller.getListOfPeople(input, id);
+
+		for (int i = 0; i < temp.size(); i++) {
 			aux.add(temp.get(i));
 		}
-		
+
 		return aux;
 	}
-	
+
 	public boolean thereArePeopleInSystem() {
 		return controller.thereArePeopleRegistered();
 	}
-	
-	
-	
+
 }
