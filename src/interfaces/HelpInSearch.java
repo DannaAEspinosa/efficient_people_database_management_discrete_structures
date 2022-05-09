@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface HelpInSearch {
+public interface HelpInSearch{
 	String getNameI();
 	String getLastNameI();
 	String getfullNameI();

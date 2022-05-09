@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UpdatePersonViewController">
+   <top>
+      <AnchorPane prefHeight="91.0" prefWidth="791.0" style="-fx-background-color: #71d1d3;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="26.0" layoutY="5.0" text="Update Person" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="61.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane fx:id="nationalityPersonCB" onDragDetected="#chooseCountry" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="30.0" layoutY="23.0" text="Name:" />
+            <TextField fx:id="nameTextFiel" layoutX="30.0" layoutY="40.0" />
+            <Label layoutX="30.0" layoutY="74.0" text="Last name:" />
+            <TextField fx:id="lastNameTextField" layoutX="30.0" layoutY="91.0" />
+            <Label layoutX="30.0" layoutY="131.0" text="Date of birth:" />
+            <DatePicker fx:id="birthDP" layoutX="30.0" layoutY="156.0" />
+            <Label layoutX="30.0" layoutY="198.0" text="Height" />
+            <TextField fx:id="heightTextField" layoutX="30.0" layoutY="222.0" />
+            <Label layoutX="30.0" layoutY="257.0" text="Nationality" />
+            <ComboBox fx:id="countryCB" layoutX="30.0" layoutY="281.0" onAction="#chooseCountry" prefWidth="150.0" promptText="Country" />
+            <Label layoutX="30.0" layoutY="316.0" text="Gender" />
+            <ComboBox fx:id="genderCB" layoutX="30.0" layoutY="339.0" onAction="#chooseGender" prefWidth="150.0" promptText="Gender" />
+            <Button fx:id="buttonSave" layoutX="316.0" layoutY="327.0" mnemonicParsing="false" onAction="#toSetUpPerson" text="Save" />
+         </children>
+      </AnchorPane>
+   </center>
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #71d1d3;" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>

@@ -74,14 +74,16 @@ public class SearchByNameViewController implements Initializable {
 	
 	@FXML
     void showDetails(ActionEvent event) {
-		
 		main.viewData(personClicked);
     }
 
     @FXML
     void showUpdateView(ActionEvent event) {
+    	System.out.println("Entra");
     	main.updatePerson();
     }
+    
+    
     
     @FXML
     void deletePerson(ActionEvent event) {

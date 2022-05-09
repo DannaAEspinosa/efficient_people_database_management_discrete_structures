@@ -17,13 +17,13 @@
             <TextField fx:id="numberPeople" layoutX="71.0" layoutY="69.0" prefHeight="31.0" prefWidth="357.0" promptText="Insert the number of people you want to generate" />
             <Button fx:id="bttGenerate" layoutX="444.0" layoutY="68.0" mnemonicParsing="false" onAction="#generateData" prefHeight="33.0" prefWidth="123.0" style="-fx-background-color: #71D1D3;" text="Generate" textFill="#003e6f" />
             <ProgressBar fx:id="progressBar" layoutX="71.0" layoutY="150.0" prefHeight="23.0" prefWidth="316.0" progress="0.0" />
-            <Button fx:id="bttSave" alignment="CENTER_RIGHT" layoutX="192.0" layoutY="277.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="126.0" style="-fx-background-color: #71d1d3;" text=" Save data" textAlignment="CENTER" textFill="#003e6f" AnchorPane.bottomAnchor="109.0" AnchorPane.leftAnchor="202.0" AnchorPane.rightAnchor="276.0" AnchorPane.topAnchor="277.0" />
             <Label fx:id="numberDataGenerate" layoutX="407.0" layoutY="151.0" prefHeight="21.0" prefWidth="55.0" textFill="#003e6f" />
             <Label layoutX="71.0" layoutY="36.0" text="Number of people:" textFill="#003e6f">
                <font>
                   <Font name="Calibri" size="18.0" />
                </font>
             </Label>
+            <Button fx:id="bttSaveData" layoutX="243.0" layoutY="254.0" mnemonicParsing="false" onAction="#saveData" prefHeight="51.0" prefWidth="105.0" style="-fx-background-color: #71D1D3;" text="Save data" textFill="#003e6f" />
          </children>
       </AnchorPane>
    </center>

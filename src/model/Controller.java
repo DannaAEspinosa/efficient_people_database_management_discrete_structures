@@ -1,8 +1,12 @@
 package model;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.RandomAccessFile;
 import java.nio.charset.Charset;
 import java.time.LocalDate;
@@ -18,6 +22,7 @@ import comparators.CompareByLastName;
 import comparators.CompareByName;
 import enumerations.Gender;
 import enumerations.Nationality;
+import generics.RedBlackNode;
 import generics.RedBlackTree;
 
 public class Controller {
@@ -29,6 +34,9 @@ public class Controller {
 	
 	private int currentYear;
 	private Date date;
+	
+	@SuppressWarnings("unused")
+	private File file;
 	
 
 
@@ -53,6 +61,8 @@ public class Controller {
 		
 		date = new Date();
 		currentYear = date.getYear()+1900;
+		
+		file = new File(".\\files\\Data.txt");
 	}
 	public void showTree() {
 		treeRBName.toShowHelp();
@@ -483,6 +493,7 @@ public class Controller {
 		
 		
 	}
+	
 	
 	
 }
