@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import controller.SearchByNameViewController;
-import controller.UpdatePersonViewController;
 import controller.AddPersonController;
 import controller.GenerateDataController;
 import controller.InitialViewController;
@@ -13,7 +11,8 @@ import controller.MenuBarController;
 import controller.SearchByCodeViewController;
 import controller.SearchByFullNameViewController;
 import controller.SearchByLastNameViewController;
-import controller.updatePersonController;
+import controller.SearchByNameViewController;
+import controller.UpdatePersonViewController;
 import controller.viewDataController;
 import enumerations.Gender;
 import enumerations.Nationality;

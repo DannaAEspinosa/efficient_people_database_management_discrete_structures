@@ -157,6 +157,8 @@ public class Person implements HelpInSearch{
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
 	}
+	
+	
 
 
 

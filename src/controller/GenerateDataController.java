@@ -156,6 +156,7 @@ public class GenerateDataController implements Initializable {
 					alert.setHeaderText("The people were registered in the system");
 					alert.showAndWait();
 					bttGenerate.setVisible(true);
+					main.intialView();
 					
 				}
 				// do your GUI stuff here
