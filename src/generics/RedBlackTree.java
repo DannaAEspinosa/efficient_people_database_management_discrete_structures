@@ -222,6 +222,9 @@ public class RedBlackTree<T extends HelpInSearch> {
 		node.setFather(y);
 	}
 	
+	public ArrayList<T> getList(){
+		return list;
+	}
 	
 	
 	public ArrayList<T> searchByName(String input){
@@ -232,9 +235,184 @@ public class RedBlackTree<T extends HelpInSearch> {
 		
 	}
 	
-	public ArrayList<T> getList(){
-		return list;
+	
+	public void delete(T value) {
+		
+		RedBlackNode<T> node = new RedBlackNode<>(value);
+		
+		delete(root,node);
 	}
+	
+	private void delete(RedBlackNode<T> current, RedBlackNode<T> node) {
+		if(current == sonNull) {
+			return;
+		}
+		else if(comp.compare(current.getValue(),node.getValue())==0) {
+			
+			
+			if(current.getValue().getIdI().equals(node.getValue().getIdI())) {
+				deleteNodeHelper(current);
+			}
+		}
+		else if(comp.compare(current.getValue(),node.getValue())>0) {
+			delete(current.getLeftSon(),node);
+		}
+		else {
+			delete(current.getRightSon(),node);
+		}
+	}
+	
+	public void deleteNodeHelper(RedBlackNode<T> node) {
+		
+		RedBlackNode<T> x, y;
+		
+		y = node;
+		
+		Color yOriginalColor = y.getColor();
+		
+		if(node.getLeftSon() == sonNull) {
+			x = node.getRightSon();
+			rbTransplant(node,node.getRightSon());
+			
+		}
+		else if(node.getRightSon() == sonNull) {
+			x = node.getLeftSon();
+			rbTransplant(node,node.getLeftSon());
+			
+		}
+		else {
+			y = minimum(node.getRightSon());
+			
+			yOriginalColor = y.getColor();
+			
+			x = y.getRightSon();
+			
+			if(y == node.getFather()) {
+				x.setFather(y);
+			}
+			else {
+				rbTransplant(y, y.getRightSon());
+				y.setRightSon(node.getRightSon());
+				y.getRightSon().setFather(y);
+			
+			}
+			
+			rbTransplant(node, y);
+			y.setLeftSon(node.getLeftSon());
+			y.getLeftSon().setFather(y);
+			y.setColor(node.getColor());
+	
+			
+		}
+		
+		if(yOriginalColor == Color.BLACK) {
+			fixDelete(x);
+		}
+		
+	}
+	
+	public void fixDelete(RedBlackNode<T> node) {
+		RedBlackNode<T> s;
+		
+		while(node != root && node.getColor() == Color.BLACK) {
+			if(node == node.getFather().getLeftSon()) {
+				s = node.getFather().getRightSon();
+				
+				if(s.getColor() == Color.RED) {
+					s.setColor(Color.BLACK);
+					node.getFather().setColor(Color.RED);
+					leftRotate(node.getFather());
+					s = node.getFather().getRightSon();
+				}
+				
+				if(s.getLeftSon().getColor() == Color.BLACK &&
+						s.getRightSon().getColor() == Color.BLACK) {
+					s.setColor(Color.RED);
+					node = node.getFather();
+				}
+				else {
+					if(s.getRightSon().getColor() == Color.BLACK) {
+						s.getLeftSon().setColor(Color.BLACK);
+						s.setColor(Color.RED);
+						rightRotate(s);
+						s = node.getFather().getRightSon();
+					}
+					
+					s.setColor(node.getFather().getColor());
+					node.getFather().setColor(Color.BLACK);
+					s.getRightSon().setColor(Color.BLACK);
+					leftRotate(node.getFather());
+					node = root;
+				}
+			} else {
+				
+				s = node.getFather().getLeftSon();
+				
+				if(s.getColor() == Color.RED) {
+					s.setColor(Color.BLACK);
+					node.getFather().setColor(Color.RED);
+					rightRotate(node.getFather());
+					s = node.getFather().getLeftSon();
+				}
+				
+				if(s.getRightSon().getColor() == Color.BLACK &&
+						s.getLeftSon().getColor() == Color.BLACK) {
+					
+
+					s.setColor(Color.RED);
+					node = node.getFather();
+				}
+				else {
+					if(s.getLeftSon().getColor() == Color.BLACK) {
+						
+						s.getRightSon().setColor(Color.BLACK);
+						s.setColor(Color.RED);
+						leftRotate(s);
+						s = node.getFather().getLeftSon();
+					}
+					
+					s.setColor(node.getFather().getColor());
+					node.getFather().setColor(Color.BLACK);
+					if(s.getLeftSon() == null) {
+						return;
+					}
+					s.getLeftSon().setColor(Color.BLACK);
+					rightRotate(node.getFather());
+					node = root;
+					
+				}
+			}
+			
+		}
+		node.setColor(Color.BLACK);
+	}
+		
+		
+	
+	public void rbTransplant(RedBlackNode<T> u, RedBlackNode<T> v) {
+		if(u.getFather() == null) {
+			root = v;
+		}
+		else if(u == u.getFather().getLeftSon()) {
+			u.getFather().setLeftSon(v);
+		}
+		else {
+			u.getFather().setRightSon(v);
+		}
+		v.setFather(u.getFather());
+	}
+	
+	
+	public RedBlackNode<T> minimum(RedBlackNode<T> node){
+		
+		while(node.getLeftSon() != sonNull) {
+			node = node.getLeftSon();
+		}
+		
+		return node;
+	}
+
+	
 	
 	public void searchByNameHelp(RedBlackNode<T> current,String input){
 		if(current == sonNull) {

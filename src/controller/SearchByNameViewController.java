@@ -79,15 +79,24 @@ public class SearchByNameViewController implements Initializable {
 
     @FXML
     void showUpdateView(ActionEvent event) {
-    	System.out.println("Entra");
-    	main.updatePerson();
+    	main.updatePerson(personClicked);
     }
+    
+ 
     
     
     
     @FXML
     void deletePerson(ActionEvent event) {
-
+    	main.toDeleteAPerson(personClicked);
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Successful process");
+		alert.setHeaderText("The person was deleted...");
+		alert.showAndWait();
+		
+		String input = nameTextField.getText();
+		ObservableList<Person> aux = main.refreshData(input.toUpperCase(),0);
+		tableData.setItems(aux);
     }
 
 	@Override
