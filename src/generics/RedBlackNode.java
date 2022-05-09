@@ -1,8 +1,9 @@
 package generics;
 
+
 import enumerations.Color;
 
-public class RedBlackNode<T> {
+public class RedBlackNode<T>{
 	
 	//Attributes
 	private Color color;

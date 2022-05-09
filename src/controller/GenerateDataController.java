@@ -14,7 +14,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 
@@ -40,8 +39,13 @@ public class GenerateDataController implements Initializable {
 	@FXML
 	private ProgressBar progressBar;
 
+	/*
 	@FXML
 	private Button bttSave;
+	*/
+	
+	@FXML
+	private Button bttSaveData;
 
 	@FXML
 	private Label numberDataGenerate;
@@ -74,11 +78,17 @@ public class GenerateDataController implements Initializable {
 		
 
 	}
+	@FXML
+	void saveData(ActionEvent e) {
+	
+	}
+	
 
 	public void setMain(Main main) {
 		this.main = main;
 	}
 
+	/*
 	public void placeImageButtons() {
 		// Icono guardar
 		URL linkSave = getClass().getResource("/img/disco.png");
@@ -91,12 +101,15 @@ public class GenerateDataController implements Initializable {
 		bttGenerate.setGraphic(new ImageView(imageGenerate));
 
 	}
+	*/
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		/*
 		placeImageButtons();
 
 		bttSave.setVisible(false);
+		*/
 		bttGenerate.setVisible(true);
 
 		progressBar.setStyle("-fx-accent: #71d1d3;");
@@ -165,7 +178,7 @@ public class GenerateDataController implements Initializable {
 	public boolean conditionalPersons(int numPeople, int numDataGenerate) {
 
 		if ((numDataGenerate+1) == numPeople) {
-			bttSave.setVisible(true);
+			//bttSave.setVisible(true);
 			return true;
 		} else if (numDataGenerate < numPeople) {
 			return false;

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 
 import controller.SearchByNameViewController;
+import controller.UpdatePersonViewController;
 import controller.AddPersonController;
 import controller.GenerateDataController;
 import controller.InitialViewController;
@@ -39,33 +40,13 @@ public class Main extends Application {
 
 	private Controller controller;
 	
-	//Attributes for send
-	
-		private String name;
-		
-		private String lastName;
-		
-		private String fullName;
-		
-		private String id;
-		
-		private String gender;
-		
-		private String nationality;
-		
-		private String age;
-		
-		private String height;
-		
-		private String birthDay;
-		
-		private String urlImage;
-
-
 
 	@Override
 	public void start(Stage primaryStage) {
+		
+		
 		controller = new Controller();
+		
 
 		try {
 			intialView();
@@ -76,6 +57,7 @@ public class Main extends Application {
 		currentStage.setTitle("Base Data S.A");
 
 	}
+	
 
 	public static void main(String[] args) {
 		launch(args);
@@ -419,16 +401,16 @@ public class Main extends Application {
 
 			BorderPane viewData;
 			FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/viewDataWindow.fxml"));
-			name=personClicked.getName();
-			lastName=personClicked.getLastName();
-			fullName=personClicked.getFullName();
-			id=personClicked.getId();
-			gender=String.valueOf(personClicked.getGender());
-			nationality=String.valueOf(personClicked.getCountry());
-			age=String.valueOf(personClicked.getAge());
-			height=String.valueOf(personClicked.getHeight());
-			birthDay=String.valueOf(personClicked.getBirthDayDate());
-			urlImage=personClicked.getImagePath();
+			String name=personClicked.getName();
+			String lastName=personClicked.getLastName();
+			String fullName=personClicked.getFullName();
+			String id=personClicked.getId();
+			String gender=String.valueOf(personClicked.getGender());
+			String nationality=String.valueOf(personClicked.getCountry());
+			String age=String.valueOf(personClicked.getAge());
+			String height=String.valueOf(personClicked.getHeight());
+			String birthDay=String.valueOf(personClicked.getBirthDayDate());
+			String urlImage=personClicked.getImagePath();
 			
 			if(urlImage.equals("")) {
 				urlImage = "/photos/AdultaFemenino3.jpg";
@@ -458,38 +440,45 @@ public class Main extends Application {
 	public void updatePerson() {
 		try {
 			
+			currentStage.close();
 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../ui/MenuBar.fxml"));
 			BorderPane root;
-			loader.setController(new updatePersonController());
 
 			root = (BorderPane) loader.load();
 
 			MenuBarController controller = loader.getController();
 			controller.setMain(this);
-			Scene scene = new Scene(root, 791, 556);
+			Scene scene = new Scene(root, 900, 525);
 			Stage stage = new Stage();
 			stage.setScene(scene);
 
 			currentStage = stage;
 			currentStage.close();
 
-			BorderPane updatePerson;
-			FXMLLoader loader_2 = new FXMLLoader(getClass().getResource("../ui/updatePersonWindow.fxml"));
+			BorderPane searchByLastName;
+			
+			FXMLLoader loaderSBLN = new FXMLLoader(getClass().getResource("../ui/UpdatePerson.fxml"));
 
-			BorderPane root_2 = (BorderPane) loader_2.load();
+			BorderPane rootSBLN = (BorderPane) loaderSBLN .load();
 
-			updatePersonController controller2 = loader_2.getController();
-			controller2.setMain(this);
-			updatePerson = (BorderPane) stage.getScene().getRoot();
+			UpdatePersonViewController controllerSBLN = loaderSBLN .getController();
+			
+			controllerSBLN.setMain(this);
+			searchByLastName = (BorderPane) stage.getScene().getRoot();
 
-			updatePerson.setCenter(root_2);
-			currentStage.setResizable(false);
+			searchByLastName.setCenter(rootSBLN);
+
+			currentStage.getIcons().add(new Image("/img/search-free-icon-font.png"));
+			currentStage.setTitle("Base Data S.A | Search By Last Name");
+
+			stage.show();
+			
 
 			currentStage.getIcons().add(new Image("/img/rotate-right-free-icon-font.png"));
 			currentStage.setTitle("Base Data S.A | Update Data");
 
-			stage.show();
+			//stage.show();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -522,4 +511,7 @@ public class Main extends Application {
 	public boolean thereArePeopleInSystem() {
 		return controller.thereArePeopleRegistered();
 	}
+	
+	
+	
 }
